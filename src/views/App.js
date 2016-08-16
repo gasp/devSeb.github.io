@@ -36,6 +36,7 @@ class App extends Component {
         //console.log("$", $('.test'));
 
         var activeNavBar = "App";
+
         return(
             <div>
                 <div>
