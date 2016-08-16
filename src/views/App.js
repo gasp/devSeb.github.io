@@ -33,7 +33,7 @@ class App extends Component {
         var displayInfo  = true;
         return(
             <div>
-                <h2> APP</h2>
+                <h2>Accueil</h2>
             </div>
         );
     }

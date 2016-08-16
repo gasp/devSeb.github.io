@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --progress --colors --watch -d"
+    "start": "webpack-dev-server --progress --colors --watch -d",
+    "FIXFIX": "webpack --progress --profile --colors --display-error-details --display-cached",
+    "build": "./node_modules/.bin/webpack -d"
   },
   "author": "",
   "license": "ISC",
