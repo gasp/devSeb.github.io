@@ -1,4 +1,4 @@
-# webProjetV2
+# devSeb.github.io
 
 ## How to install and run the project ?
 git clone https://github.com/devSeb/devSeb.github.io.git </br>
