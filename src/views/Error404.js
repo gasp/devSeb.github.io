@@ -5,22 +5,20 @@ import { bindActionCreators } from 'redux';
 
 /** Components **/
 import NavBar from '../components/NavBar/NavBar';
-import Footer from '../components/Footer/Footer';
-import Project from '../components/Project/Project';
 
 /** Reducer Action**/
 import * as TestActions from '../redux/actions/TestActions';
 
 /** State **/
 const mapStateToProps = (state) => ({
-            //element: state.textTest.element
+    //element: state.textTest.element
 });
 /** Action **/
 const mapDispatchToProps = (dispatch) => ({
-        //TestActions: bindActionCreators(TestActions, dispatch)
+    //TestActions: bindActionCreators(TestActions, dispatch)
 });
 
-class App extends Component {
+class Error404 extends Component {
 
     static propTypes = {};
 
@@ -35,31 +33,18 @@ class App extends Component {
         //console.log("element", this.props.element.text);
         //console.log("$", $('.test'));
 
-        var activeNavBar = "App";
+        var activeNavBar = "Projects";
         return(
             <div>
-                <div>
+                <div className="container">
                     <NavBar active={activeNavBar}/>
                 </div>
-
                 <div className="container">
-                    <div className="col-sm-9">
-                        <Project />
-                    </div>
-
-                    <div className="col-sm-3">
-                        <h4><label className="label label-success">
-                            Working Progress ...
-                        </label></h4>
-                    </div>
-                </div>
-
-                <div>
-                    <Footer />
+                   Error
                 </div>
             </div>
         );
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(Error404);
 
