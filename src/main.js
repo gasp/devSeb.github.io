@@ -1,21 +1,23 @@
 
 import React from 'react';
 import { render } from 'react-dom'
-import { Router, Route, Link, browserHistory } from 'react-router'
+import { Router, Route, Link, IndexRoute, browserHistory } from 'react-router'
 
 /** Jquery **/
-var $ = require('./lib/jquery.min.js');
-window.$ = $;
-window.jQuery = $;
+//var $ = require('./lib/jquery.min.js');
+//window.$ = $;
+//window.jQuery = $;
 
 /** Css **/
 require('./main.scss');
 /** bootstrap loader **/
-require('bootstrap-loader');
-
+//require('bootstrap-loader');
 
 /** View **/
 import App from './views/App.js';
+import Projects from './views/Projects.js';
+import Error404 from './views/Error404.js';
+console.log("project", Projects);
 
 
 
@@ -27,8 +29,10 @@ import store from './redux/store/Store';
 
 render((
     <Provider store={store}>
-    <Router history={browserHistory}>
-        <Route path="/" component={App}/>
-    </Router>
+        <Router history={browserHistory}>
+            <Route path="/" component={App}/>
+            <Route path="/projects" component={Projects}/>
+            <Route path="*" component={Error404}/>
+        </Router>
     </Provider>
 ), document.getElementById('content'));
