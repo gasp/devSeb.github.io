@@ -17,7 +17,9 @@ require('./main.scss');
 import App from './views/App.js';
 import Projects from './views/Projects.js';
 import Error404 from './views/Error404.js';
-console.log("project", Projects);
+
+import ChartJs from './views/LOP/ChartJs/ChartJs.js';
+
 
 
 
@@ -32,6 +34,7 @@ render((
         <Router history={browserHistory}>
             <Route path="/" component={App}/>
             <Route path="/projects" component={Projects}/>
+            <Route path="/chartjs" component={ChartJs}/>
             <Route path="*" component={Error404}/>
         </Router>
     </Provider>

@@ -34,7 +34,7 @@ class Footer extends Component {
         return(
             <div className="footer">
             <footer>
-                <nav className="navbar navbar-default">
+                <nav className="navbar navbar-default navbar-fixed-bottom">
                     <div className="container">
                         <div className="navbar-header">
                             <span className="navbar-text margin-15">
