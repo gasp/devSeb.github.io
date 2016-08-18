@@ -36,10 +36,9 @@ module.exports = {
                 include: path.join(__dirname, 'src'),
                 loader: 'style!css!sass'
             },
-            /** Bootstrap font loader **/
             {
-                test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
-                loader: 'file'
+                test: /\.jpe?g$|\.gif$|\.png$/i,
+                loader: "file-loader?name=/images/[name].[ext]"
             }
         ]
     },

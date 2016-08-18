@@ -29,6 +29,7 @@ class App extends Component {
     }
 
     componentDidMount () {
+        require('./App.css')
     }
 
     render() {
@@ -38,7 +39,7 @@ class App extends Component {
         var activeNavBar = "App";
 
         return(
-            <div>
+            <div className="app">
                 <div>
                     <NavBar active={activeNavBar}/>
                 </div>
@@ -48,11 +49,13 @@ class App extends Component {
                         <Project />
                     </div>
 
-                    <div className="col-sm-3">
-                        <h4><label className="label label-success">
-                            Working Progress ...
-                        </label></h4>
-                        <br/>
+                    <div className="">
+                        <div className="col-sm-3">
+                            <h4><label className="label label-success">
+                                Working Progress ...
+                            </label></h4>
+                            <br/>
+                        </div>
                     </div>
                 </div>
 
