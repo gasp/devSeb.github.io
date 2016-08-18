@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "59672ac81679df0e290c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "83de6b664a9b7d485241"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -37676,63 +37676,72 @@
 	                    projects && projects.map(function (item, index) {
 	                        return _react2.default.createElement(
 	                            'div',
-	                            { key: index, className: 'container' },
+	                            { className: 'row' },
 	                            _react2.default.createElement(
 	                                'div',
-	                                { className: 'col-sm-5' },
+	                                { key: index, className: 'col-sm-12' },
 	                                _react2.default.createElement(
-	                                    'h3',
-	                                    null,
-	                                    ' ',
-	                                    item.title,
-	                                    ' '
-	                                ),
-	                                _react2.default.createElement(
-	                                    'ul',
-	                                    { className: 'list-inline' },
-	                                    item.techno && item.techno.map(function (itemTechno, indexTechno) {
-	                                        //console.log("tech", itemTechno, indexTechno);
-	                                        return _react2.default.createElement(
-	                                            'li',
-	                                            { key: indexTechno },
-	                                            itemTechno && _react2.default.createElement(
-	                                                'h5',
-	                                                null,
-	                                                _react2.default.createElement(
-	                                                    'label',
-	                                                    { className: 'label label-default' },
-	                                                    itemTechno
-	                                                )
-	                                            )
-	                                        );
-	                                    })
-	                                ),
-	                                _react2.default.createElement(
-	                                    'p',
-	                                    null,
-	                                    ' ',
-	                                    item.desc
-	                                ),
-	                                _react2.default.createElement(
-	                                    'ul',
-	                                    { className: 'list-inline' },
+	                                    'div',
+	                                    { className: 'col-sm-8' },
 	                                    _react2.default.createElement(
-	                                        'li',
+	                                        'h3',
 	                                        null,
-	                                        _react2.default.createElement(
-	                                            _reactRouter.Link,
-	                                            { className: 'btn btn-info', to: '/chartjs' },
-	                                            _react2.default.createElement('i', { className: 'glyphicon glyphicon-share-alt' }),
-	                                            ' Link'
-	                                        )
+	                                        ' ',
+	                                        item.title,
+	                                        ' '
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'ul',
+	                                        { className: 'list-inline' },
+	                                        item.techno && item.techno.map(function (itemTechno, indexTechno) {
+	                                            //console.log("tech", itemTechno, indexTechno);
+	                                            return _react2.default.createElement(
+	                                                'li',
+	                                                { key: indexTechno },
+	                                                itemTechno && _react2.default.createElement(
+	                                                    'h5',
+	                                                    null,
+	                                                    _react2.default.createElement(
+	                                                        'label',
+	                                                        { className: 'label label-default' },
+	                                                        itemTechno
+	                                                    )
+	                                                )
+	                                            );
+	                                        })
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'p',
+	                                        null,
+	                                        ' ',
+	                                        item.desc
 	                                    )
 	                                ),
-	                                _react2.default.createElement('hr', null)
-	                            ),
-	                            _react2.default.createElement(
-	                                'div',
-	                                { className: 'col-sm-2 img-bloc' },
-	                                _react2.default.createElement('img', { src: __webpack_require__(349), width: '200', height: '150' })
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'col-sm-4 img-bloc' },
+	                                    _react2.default.createElement('img', { src: __webpack_require__(349), width: '200', height: '150' })
+	                                ),
+	                                _react2.default.createElement('br', null),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'col-sm-8' },
+	                                    _react2.default.createElement(
+	                                        'ul',
+	                                        { className: 'list-inline' },
+	                                        _react2.default.createElement(
+	                                            'li',
+	                                            null,
+	                                            _react2.default.createElement(
+	                                                _reactRouter.Link,
+	                                                { className: 'btn btn-info', to: '/chartjs' },
+	                                                _react2.default.createElement('i', { className: 'glyphicon glyphicon-share-alt' }),
+	                                                ' Link'
+	                                            )
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement('hr', null)
+	                                )
 	                            )
 	                        );
 	                    })
@@ -37823,7 +37832,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".img-bloc {\r\n    padding-top:20px;\r\n}", ""]);
+	exports.push([module.id, ".img-bloc {\r\n    padding-top:30px;\r\n}", ""]);
 	
 	// exports
 

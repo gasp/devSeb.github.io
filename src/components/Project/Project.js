@@ -44,35 +44,42 @@ class Project extends Component {
                 <div>
                     { projects && projects.map(function (item, index ) {
                         return (
-                    <div key={index} className="container">
-                        <div className="col-sm-5">
-                            <h3> {item.title} </h3>
-                            <ul className="list-inline">
-                                { item.techno && item.techno.map(function (itemTechno, indexTechno){
-                                    //console.log("tech", itemTechno, indexTechno);
-                                    return (
-                                        <li key={indexTechno}>
-                                            {itemTechno &&
-                                            <h5><label className="label label-default">
-                                                {itemTechno}
-                                            </label></h5>
-                                            }
-                                        </li>
-                                    );
-                                })}
-                            </ul>
-                            <p> {item.desc}</p>
-                            <ul className="list-inline">
-                                <li>
-                                    <Link className="btn btn-info" to="/chartjs">
-                                        <i className="glyphicon glyphicon-share-alt"></i> Link
-                                    </Link>
-                                </li>
-                            </ul>
-                            <hr />
-                        </div>
-                        <div className="col-sm-2 img-bloc">
-                            <img src={ require('./foo.png')} width="200" height="150"/>
+                    <div className="row">
+                        <div key={index} className="col-sm-12">
+                            <div className="col-sm-8">
+                                <h3> {item.title} </h3>
+                                <ul className="list-inline">
+                                    { item.techno && item.techno.map(function (itemTechno, indexTechno){
+                                        //console.log("tech", itemTechno, indexTechno);
+                                        return (
+                                            <li key={indexTechno}>
+                                                {itemTechno &&
+                                                <h5><label className="label label-default">
+                                                    {itemTechno}
+                                                </label></h5>
+                                                }
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+                                <p> {item.desc}</p>
+
+                            </div>
+                            <div className="col-sm-4 img-bloc">
+                                <img src={ require('./foo.png')} width="200" height="150"/>
+                            </div>
+                            <br/>
+
+                            <div className="col-sm-8">
+                                <ul className="list-inline">
+                                    <li>
+                                        <Link className="btn btn-info" to="/chartjs">
+                                            <i className="glyphicon glyphicon-share-alt"></i> Link
+                                        </Link>
+                                    </li>
+                                </ul>
+                                <hr />
+                            </div>
                         </div>
 
                     </div>
