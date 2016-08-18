@@ -30,14 +30,14 @@ class Project extends Component {
         //console.log("element", this.props.element.text);
         //console.log("$", $('.test'));
 
-        var projects = [];
-        //var projects = [
-        //    {   icon: "fa fa-android",
-        //        title : "Title",
-        //        desc : "description",
-        //        techno : [ "test"]
-        //    }
-        //];
+        //var projects = [];
+        var projects = [
+            {   icon: "fa fa-android",
+                title : "Web App with Chart.js",
+                desc : "Demo of a web application chart with chart.js .",
+                techno : [ "Chart.js", "Bootstrap", "ReactJs"]
+            }
+        ];
 
         return(
             <div className="project">
@@ -45,27 +45,27 @@ class Project extends Component {
                     { projects && projects.map(function (item, index ) {
                         return (
                     <div className="container">
-                        <h2> {item.title} </h2>
+                        <h3> {item.title} </h3>
                         <ul className="list-inline">
                             { item.techno && item.techno.map(function (itemTechno, indexTechno){
                                 //console.log("tech", itemTechno, indexTechno);
                                 return (
                                     <li key={indexTechno}>
                                         {itemTechno &&
-                                        <h4><label className="label label-default">
+                                        <h5><label className="label label-default">
                                             {itemTechno}
-                                        </label></h4>
+                                        </label></h5>
                                         }
                                     </li>
                                 );
                             })}
                         </ul>
-                        <p> {item.desc}</p>
+                       <p> {item.desc}</p>
                         <ul className="list-inline">
                             <li>
-                                <a className="btn btn-info" href="#">
+                                <Link className="btn btn-info" to="/chartjs">
                                     <i className="glyphicon glyphicon-share-alt"></i> Link
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                         <hr />

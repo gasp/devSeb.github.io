@@ -30,7 +30,7 @@ class ChartJs extends Component {
         super();
         this.state = {
             selectedElement : null,
-            sideBarLeftDisplay: true
+            sideBarLeftDisplay: false
         }
     }
 
@@ -130,7 +130,7 @@ class ChartJs extends Component {
                 </div>
 
                 <div className="header">
-                    <a href="#" onClick={this.onClickSideBarLeft.bind(this)}><i className="glyphicon glyphicon-menu-hamburger"> Global Informations </i> </a>
+                    <h4><a href="#" onClick={this.onClickSideBarLeft.bind(this)}><i className="glyphicon glyphicon-menu-hamburger"> Global Informations </i> </a></h4>
                     {this.state.sideBarLeftDisplay &&
                         <SideBarLeft />
                     }

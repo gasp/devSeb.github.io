@@ -39,11 +39,16 @@ class SideBarLeft extends Component {
             <div className="side-bar-left">
                 <div className="col-sm-12">
                     <div className="title-sidebar text-center">
-                        <h3> titre </h3>
                     </div>
                     <div className="body-sidebar text-center">
-                            <h2>Identification Globale</h2>
-                            <PieChartjsCustom />
+                        <h2>Identification Globale</h2>
+                        <br/>
+
+                        <h4>Element 1</h4>
+                        <PieChartjsCustom id="pieChart1" data={[300, 50, 100, 200, 400, 20]} />
+                        <br/>
+                        <h4>Element 2</h4>
+                        <PieChartjsCustom id="pieChart2" data={[100, 150, 200, 20, 100, 120]} />
                     </div>
                 </div>
             </div>

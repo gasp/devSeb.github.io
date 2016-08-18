@@ -19,7 +19,8 @@ const mapDispatchToProps = (dispatch) => ({
 class PieChartjsCustom extends Component {
 
     static propTypes = {
-        selectedElement: PropTypes.object
+        id: PropTypes.string,
+        data: PropTypes.array
     };
 
     constructor() {
@@ -33,14 +34,15 @@ class PieChartjsCustom extends Component {
     render() {
         //console.log("element", this.props.element.text);
         //console.log("$", $('.test'));
-
+        var self = this;
+        var divId = "#"+self.props.id+"-div";
         $(function() {
-            $('#myPieChart').empty();
-            var canvas_lineChart = $('<canvas/>', {id: 'pieChart', height: 700, width: 700});
+            $(divId).empty();
+            var canvas_lineChart = $('<canvas/>', {id: self.props.id, height: 700, width: 700});
             //canvas_lineChart.css('border', 'solid 0px red');
-            $('#myPieChart').append(canvas_lineChart);
+            $(divId).append(canvas_lineChart);
 
-            var ctx_pieChart = document.getElementById("pieChart");
+            var ctx_pieChart = document.getElementById(self.props.id);
             var myPieChart = new Chart(ctx_pieChart,{
                 type: 'pie',
                 data: {
@@ -48,21 +50,35 @@ class PieChartjsCustom extends Component {
                         "Red",
                         "Blue",
                         "Yellow",
+                        "Green",
+                        "Purple",
                         "Orange"
                     ],
                     datasets: [{
-                        data: [300, 50, 100, 200],
+                        data: self.props.data,
                         backgroundColor: [
-                            "#FF6384",
-                            "#36A2EB",
-                            "#FFCE56",
-                            "#FFCE56"
+                            //"#FF6384",
+                            //"#36A2EB",
+                            //"#FFCE56",
+                            //"#FFCE56",
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
                         ],
                         hoverBackgroundColor: [
-                            "#FF6384",
-                            "#36A2EB",
-                            "#FFCE56",
-                            "#FFCE56"
+                            //"#FF6384",
+                            //"#36A2EB",
+                            //"#FFCE56",
+                            //"#FFCE56",
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
                         ]
                     }]
                 }
@@ -71,7 +87,7 @@ class PieChartjsCustom extends Component {
 
         return(
             <div className="pie-chartjs-custom">
-                <div id="myPieChart">
+                <div id={self.props.id+"-div"}>
                 </div>
             </div>
         );
