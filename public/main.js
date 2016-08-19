@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "83de6b664a9b7d485241"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "4dd8034ff0d4005581b4"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -8266,7 +8266,7 @@
 	
 	var _reactRedux = __webpack_require__(314);
 	
-	var _Store = __webpack_require__(510);
+	var _Store = __webpack_require__(512);
 	
 	var _Store2 = _interopRequireDefault(_Store);
 	
@@ -8278,7 +8278,7 @@
 	//window.jQuery = $;
 	
 	/** Css **/
-	__webpack_require__(512);
+	__webpack_require__(514);
 	/** bootstrap loader **/
 	//require('bootstrap-loader');
 	
@@ -35262,15 +35262,15 @@
 	                    { className: 'container' },
 	                    _react2.default.createElement(
 	                        'div',
-	                        { className: 'col-sm-9' },
-	                        _react2.default.createElement(_Project2.default, null)
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: '' },
+	                        { className: 'row' },
 	                        _react2.default.createElement(
 	                            'div',
-	                            { className: 'col-sm-3' },
+	                            { className: 'col-sm-10' },
+	                            _react2.default.createElement(_Project2.default, null)
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'row col-sm-2 news' },
 	                            _react2.default.createElement(
 	                                'h4',
 	                                null,
@@ -37682,7 +37682,7 @@
 	                                { key: index, className: 'col-sm-12' },
 	                                _react2.default.createElement(
 	                                    'div',
-	                                    { className: 'col-sm-8' },
+	                                    { className: 'col-sm-6' },
 	                                    _react2.default.createElement(
 	                                        'h3',
 	                                        null,
@@ -37736,7 +37736,17 @@
 	                                                _reactRouter.Link,
 	                                                { className: 'btn btn-info', to: '/chartjs' },
 	                                                _react2.default.createElement('i', { className: 'glyphicon glyphicon-share-alt' }),
-	                                                ' Link'
+	                                                ' Demo'
+	                                            )
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            'li',
+	                                            null,
+	                                            _react2.default.createElement(
+	                                                'a',
+	                                                { href: 'https://github.com/devSeb/devSeb.github.io/tree/master/src/sources/ChartJs', target: '_blank', className: 'btn btn-primary' },
+	                                                _react2.default.createElement('i', { className: 'fa fa-github', 'aria-hidden': 'true' }),
+	                                                ' Sources'
 	                                            )
 	                                        )
 	                                    ),
@@ -37832,7 +37842,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".img-bloc {\r\n    padding-top:30px;\r\n}", ""]);
+	exports.push([module.id, ".img-bloc {\r\n    padding-top:30px;\r\n}\r\n.news {\r\n    min-height: 200px;\r\n}", ""]);
 	
 	// exports
 
@@ -38098,12 +38108,6 @@
 	
 	var _SideBarLeft2 = _interopRequireDefault(_SideBarLeft);
 	
-	var _TestActions = __webpack_require__(350);
-	
-	var TestActions = _interopRequireWildcard(_TestActions);
-	
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -38114,21 +38118,9 @@
 	
 	/** Components **/
 	
-	/** Reducer Action**/
 	
+	/** private Components **/
 	
-	/** State **/
-	var mapStateToProps = function mapStateToProps(state) {
-	    return {
-	        //element: state.textTest.element
-	    };
-	};
-	/** Action **/
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	    return {
-	        //TestActions: bindActionCreators(TestActions, dispatch)
-	    };
-	};
 	
 	var ChartJs = function (_Component) {
 	    _inherits(ChartJs, _Component);
@@ -38147,8 +38139,7 @@
 	
 	    _createClass(ChartJs, [{
 	        key: 'test',
-	        value: function test(evt, activePoints) {
-	            console.log("evt", evt, activePoints);
+	        value: function test(activePoints) {
 	            var index = activePoints[0]._index;
 	            var colorElementSelected = activePoints[0]._model.backgroundColor;
 	            var nameElementSelected = activePoints[0]._model.label;
@@ -38164,6 +38155,7 @@
 	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
+	            __webpack_require__(510);
 	            var self = this;
 	            $(function () {
 	                /** First chart **/
@@ -38210,15 +38202,13 @@
 	                });
 	                $("#myChart").click(function (evt) {
 	                    var activePoints = myChart.getElementsAtEvent(evt);
-	                    self.test(evt, activePoints);
+	                    self.test(activePoints);
 	                });
 	            });
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            //console.log("element", this.props.element.text);
-	            //console.log("$", $('.test'));
 	
 	            var activeNavBar = "Projects";
 	            return _react2.default.createElement(
@@ -38258,10 +38248,10 @@
 	                    ),
 	                    _react2.default.createElement(
 	                        'div',
-	                        { className: 'container' },
+	                        { className: 'container ' },
 	                        _react2.default.createElement(
 	                            'div',
-	                            { className: 'text-center' },
+	                            { className: 'row text-center' },
 	                            _react2.default.createElement('div', { className: 'col-md-12', id: 'element' })
 	                        )
 	                    ),
@@ -38284,7 +38274,7 @@
 	}(_react.Component);
 	
 	ChartJs.propTypes = {};
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ChartJs);
+	exports.default = ChartJs;
 
 /***/ },
 /* 357 */
@@ -63331,13 +63321,53 @@
 	
 	
 	// module
-	exports.push([module.id, ".side-bar-left {\r\n    min-width: 300px;\r\n    height: 100%;\r\n    position: fixed;\r\n    background-color: #ffeb9b;\r\n    z-index: 998;\r\n    border-radius: 5px;\r\n    border: 0px solid cadetblue;\r\n}\r\n\r\n.side-bar-left .title-sidebar {\r\n    height: 40px;\r\n    /*background-color: #ffffff;*/\r\n    border-radius: 10px;\r\n}\r\n\r\n.side-bar-left .body-sidebar {\r\n}", ""]);
+	exports.push([module.id, ".side-bar-left {\r\n    max-width: 300px;\r\n    height: 100%;\r\n    position: fixed;\r\n    background-color: #ffeb9b;\r\n    z-index: 998;\r\n    border-radius: 5px;\r\n    border: 0px solid cadetblue;\r\n}\r\n\r\n.side-bar-left .title-sidebar {\r\n    height: 40px;\r\n    /*background-color: #ffffff;*/\r\n    border-radius: 10px;\r\n}\r\n\r\n.side-bar-left .body-sidebar {\r\n}", ""]);
 	
 	// exports
 
 
 /***/ },
 /* 510 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(511);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(347)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(true) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept(511, function() {
+				var newContent = __webpack_require__(511);
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 511 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(346)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".header{\r\n    position:fixed;\r\n}", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 512 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63348,7 +63378,7 @@
 	
 	var _redux = __webpack_require__(321);
 	
-	var _textTest = __webpack_require__(511);
+	var _textTest = __webpack_require__(513);
 	
 	var _textTest2 = _interopRequireDefault(_textTest);
 	
@@ -63368,7 +63398,7 @@
 	exports.default = store;
 
 /***/ },
-/* 511 */
+/* 513 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63414,13 +63444,13 @@
 	}
 
 /***/ },
-/* 512 */
+/* 514 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(513);
+	var content = __webpack_require__(515);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(347)(content, {});
@@ -63429,8 +63459,8 @@
 	if(true) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept(513, function() {
-				var newContent = __webpack_require__(513);
+			module.hot.accept(515, function() {
+				var newContent = __webpack_require__(515);
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -63440,7 +63470,7 @@
 	}
 
 /***/ },
-/* 513 */
+/* 515 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(346)();
