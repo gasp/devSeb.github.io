@@ -19,6 +19,7 @@ import Projects from './views/Projects.js';
 import Error404 from './views/Error404.js';
 
 import ChartJs from './sources/ChartJs/views/ChartJs';
+import Labs from './sources/App1/view/Labs';
 
 /** Redux  init **/
 import { Provider } from 'react-redux'
@@ -32,6 +33,7 @@ render((
             <Route path="/" component={App}/>
             <Route path="/projects" component={Projects}/>
             <Route path="/chartjs" component={ChartJs}/>
+            <Route path="/labs" component={Labs}/>
             <Route path="*" component={Error404}/>
         </Router>
     </Provider>

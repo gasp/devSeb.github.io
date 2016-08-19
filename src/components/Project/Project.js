@@ -44,8 +44,8 @@ class Project extends Component {
                 <div>
                     { projects && projects.map(function (item, index ) {
                         return (
-                    <div className="row">
-                        <div key={index} className="col-sm-12">
+                    <div key={index} className="row">
+                        <div className="col-sm-12">
                             <div className="col-sm-6">
                                 <h3> {item.title} </h3>
                                 <ul className="list-inline">
