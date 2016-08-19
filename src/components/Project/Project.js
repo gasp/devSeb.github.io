@@ -46,7 +46,7 @@ class Project extends Component {
                         return (
                     <div className="row">
                         <div key={index} className="col-sm-12">
-                            <div className="col-sm-8">
+                            <div className="col-sm-6">
                                 <h3> {item.title} </h3>
                                 <ul className="list-inline">
                                     { item.techno && item.techno.map(function (itemTechno, indexTechno){
@@ -78,13 +78,14 @@ class Project extends Component {
                                         </Link>
                                     </li>
                                     <li>
-                                       <a href="https://github.com/devSeb/devSeb.github.io" target="_blank" className="btn btn-primary">
+                                       <a href="https://github.com/devSeb/devSeb.github.io/tree/master/src/sources/ChartJs" target="_blank" className="btn btn-primary">
                                             <i className="fa fa-github" aria-hidden="true"></i> Sources
                                         </a>
                                     </li>
                                 </ul>
                                 <hr />
                             </div>
+
                         </div>
 
                     </div>

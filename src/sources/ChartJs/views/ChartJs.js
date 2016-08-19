@@ -13,17 +13,6 @@ import Footer from '../../../components/Footer/Footer';
 import LineChartJsCustom from '../components/LineChartjsCustom/LineChartJsCustom';
 import SideBarLeft from '../components/SideBar/Left/SideBarLeft';
 
-/** Reducer Action**/
-//import * as TestActions from '../../../redux/actions/TestActions';
-
-/** State **/
-const mapStateToProps = (state) => ({
-    //element: state.textTest.element
-});
-/** Action **/
-const mapDispatchToProps = (dispatch) => ({
-    //TestActions: bindActionCreators(TestActions, dispatch)
-});
 
 class ChartJs extends Component {
 
@@ -37,8 +26,7 @@ class ChartJs extends Component {
         }
     }
 
-    test(evt, activePoints) {
-        //console.log("evt", evt, activePoints);
+    test( activePoints) {
         let index = activePoints[0]._index;
         let colorElementSelected = activePoints[0]._model.backgroundColor;
         let nameElementSelected = activePoints[0]._model.label;
@@ -53,6 +41,7 @@ class ChartJs extends Component {
     }
 
     componentDidMount () {
+        require('./ChartJs.css');
         var self = this;
         $(function() {
             /** First chart **/
@@ -115,15 +104,13 @@ class ChartJs extends Component {
             $("#myChart").click(
                 function(evt){
                     let activePoints = myChart.getElementsAtEvent(evt);
-                    self.test(evt, activePoints);
+                    self.test(activePoints);
                 }
             );
         });
     }
 
     render() {
-        //console.log("element", this.props.element.text);
-        //console.log("$", $('.test'));
 
         var activeNavBar = "Projects";
         return(
@@ -142,8 +129,8 @@ class ChartJs extends Component {
                 <div className="container">
                     <h2>ChartJs Project</h2>
 
-                    <div className="container">
-                        <div className="text-center">
+                    <div className="container ">
+                        <div className="row text-center">
                             <div className="col-md-12" id="element"></div>
                         </div>
                     </div>
@@ -162,4 +149,4 @@ class ChartJs extends Component {
         );
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(ChartJs);
+export default ChartJs;

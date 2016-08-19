@@ -45,17 +45,19 @@ class App extends Component {
                 </div>
 
                 <div className="container">
-                    <div className="col-sm-9">
-                        <Project />
-                    </div>
+                    <div className="row">
 
-                    <div className="">
-                        <div className="col-sm-3">
+                        <div className="col-sm-10">
+                            <Project />
+                        </div>
+
+                        <div className="row col-sm-2 news">
                             <h4><label className="label label-success">
                                 Working Progress ...
                             </label></h4>
                             <br/>
                         </div>
+
                     </div>
                 </div>
 
