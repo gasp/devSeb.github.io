@@ -18,7 +18,8 @@ import App from './views/App.js';
 import Projects from './views/Projects.js';
 import Error404 from './views/Error404.js';
 
-import ChartJs from './views/LOP/ChartJs/ChartJs.js';
+//import ChartJs from './views/LOP/ChartJs/ChartJs.js';
+import ChartJs from './sources/ChartJs/views/ChartJs';
 
 
 

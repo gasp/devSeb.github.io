@@ -74,8 +74,13 @@ class Project extends Component {
                                 <ul className="list-inline">
                                     <li>
                                         <Link className="btn btn-info" to="/chartjs">
-                                            <i className="glyphicon glyphicon-share-alt"></i> Link
+                                            <i className="glyphicon glyphicon-share-alt"></i> Demo
                                         </Link>
+                                    </li>
+                                    <li>
+                                       <a href="https://github.com/devSeb/devSeb.github.io" target="_blank" className="btn btn-primary">
+                                            <i className="fa fa-github" aria-hidden="true"></i> Sources
+                                        </a>
                                     </li>
                                 </ul>
                                 <hr />

@@ -8,10 +8,13 @@ import Chart from 'chart.js/src/chart.js';
 /** Components **/
 import NavBar from '../../../components/NavBar/NavBar';
 import Footer from '../../../components/Footer/Footer';
-import LineChartJsCustom from '../../../components/LOCP/ChartJs/LineChartjsCustom/LineChartJsCustom';
-import SideBarLeft from '../../../components/LOCP/ChartJs/SideBar/Left/SideBarLeft';
+
+/** private Components **/
+import LineChartJsCustom from '../components/LineChartjsCustom/LineChartJsCustom';
+import SideBarLeft from '../components/SideBar/Left/SideBarLeft';
+
 /** Reducer Action**/
-import * as TestActions from '../../../redux/actions/TestActions';
+//import * as TestActions from '../../../redux/actions/TestActions';
 
 /** State **/
 const mapStateToProps = (state) => ({
@@ -35,7 +38,7 @@ class ChartJs extends Component {
     }
 
     test(evt, activePoints) {
-        console.log("evt", evt, activePoints);
+        //console.log("evt", evt, activePoints);
         let index = activePoints[0]._index;
         let colorElementSelected = activePoints[0]._model.backgroundColor;
         let nameElementSelected = activePoints[0]._model.label;
