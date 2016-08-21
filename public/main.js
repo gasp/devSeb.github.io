@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "4dd8034ff0d4005581b4"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "15ec2d6c4337c9a663c9"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -8264,9 +8264,13 @@
 	
 	var _ChartJs2 = _interopRequireDefault(_ChartJs);
 	
+	var _Labs = __webpack_require__(512);
+	
+	var _Labs2 = _interopRequireDefault(_Labs);
+	
 	var _reactRedux = __webpack_require__(314);
 	
-	var _Store = __webpack_require__(512);
+	var _Store = __webpack_require__(523);
 	
 	var _Store2 = _interopRequireDefault(_Store);
 	
@@ -8278,7 +8282,7 @@
 	//window.jQuery = $;
 	
 	/** Css **/
-	__webpack_require__(514);
+	__webpack_require__(526);
 	/** bootstrap loader **/
 	//require('bootstrap-loader');
 	
@@ -8298,6 +8302,7 @@
 	        _react2.default.createElement(_reactRouter.Route, { path: '/', component: _App2.default }),
 	        _react2.default.createElement(_reactRouter.Route, { path: '/projects', component: _Projects2.default }),
 	        _react2.default.createElement(_reactRouter.Route, { path: '/chartjs', component: _ChartJs2.default }),
+	        _react2.default.createElement(_reactRouter.Route, { path: '/labs', component: _Labs2.default }),
 	        _react2.default.createElement(_reactRouter.Route, { path: '*', component: _Error2.default })
 	    )
 	), document.getElementById('content'));
@@ -37676,10 +37681,10 @@
 	                    projects && projects.map(function (item, index) {
 	                        return _react2.default.createElement(
 	                            'div',
-	                            { className: 'row' },
+	                            { key: index, className: 'row' },
 	                            _react2.default.createElement(
 	                                'div',
-	                                { key: index, className: 'col-sm-12' },
+	                                { className: 'col-sm-12' },
 	                                _react2.default.createElement(
 	                                    'div',
 	                                    { className: 'col-sm-6' },
@@ -38238,27 +38243,33 @@
 	                    ),
 	                    this.state.sideBarLeftDisplay && _react2.default.createElement(_SideBarLeft2.default, null)
 	                ),
+	                _react2.default.createElement('br', null),
+	                _react2.default.createElement('br', null),
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'container' },
 	                    _react2.default.createElement(
-	                        'h2',
-	                        null,
-	                        'ChartJs Project'
-	                    ),
-	                    _react2.default.createElement(
 	                        'div',
-	                        { className: 'container ' },
+	                        { className: this.state.sideBarLeftDisplay ? "margin" : "" },
+	                        _react2.default.createElement(
+	                            'h2',
+	                            null,
+	                            'ChartJs Project'
+	                        ),
 	                        _react2.default.createElement(
 	                            'div',
-	                            { className: 'row text-center' },
-	                            _react2.default.createElement('div', { className: 'col-md-12', id: 'element' })
+	                            { className: 'container ' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'row text-center' },
+	                                _react2.default.createElement('div', { className: 'col-sm-12', id: 'element' })
+	                            )
+	                        ),
+	                        this.state.selectedElement && _react2.default.createElement(
+	                            'div',
+	                            { className: 'container' },
+	                            _react2.default.createElement(_LineChartJsCustom2.default, { selectedElement: this.state.selectedElement })
 	                        )
-	                    ),
-	                    this.state.selectedElement && _react2.default.createElement(
-	                        'div',
-	                        { className: 'container' },
-	                        _react2.default.createElement(_LineChartJsCustom2.default, { selectedElement: this.state.selectedElement })
 	                    )
 	                ),
 	                _react2.default.createElement(
@@ -63321,7 +63332,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".side-bar-left {\r\n    max-width: 300px;\r\n    height: 100%;\r\n    position: fixed;\r\n    background-color: #ffeb9b;\r\n    z-index: 998;\r\n    border-radius: 5px;\r\n    border: 0px solid cadetblue;\r\n}\r\n\r\n.side-bar-left .title-sidebar {\r\n    height: 40px;\r\n    /*background-color: #ffffff;*/\r\n    border-radius: 10px;\r\n}\r\n\r\n.side-bar-left .body-sidebar {\r\n}", ""]);
+	exports.push([module.id, ".side-bar-left {\r\n    max-width: 300px;\r\n    height: 100%;\r\n    position: fixed;\r\n    background-color: #ffeb9b;\r\n    z-index: 998;\r\n    border-radius: 5px;\r\n    border: 0px solid cadetblue;\r\n    opacity: 0.90;\r\n}\r\n\r\n.side-bar-left .title-sidebar {\r\n    height: 40px;\r\n    /*background-color: #ffffff;*/\r\n    border-radius: 10px;\r\n}\r\n\r\n.side-bar-left .body-sidebar {\r\n}", ""]);
 	
 	// exports
 
@@ -63361,7 +63372,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".header{\r\n    position:fixed;\r\n}", ""]);
+	exports.push([module.id, ".header{\r\n    position:fixed;\r\n}\r\n\r\n.margin{\r\n    margin-left: 300px;\r\n}", ""]);
 	
 	// exports
 
@@ -63373,32 +63384,1093 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(77);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRedux = __webpack_require__(314);
+	
+	var _reactRouter = __webpack_require__(250);
+	
+	var _redux = __webpack_require__(321);
+	
+	var _NavBar = __webpack_require__(342);
+	
+	var _NavBar2 = _interopRequireDefault(_NavBar);
+	
+	var _Footer = __webpack_require__(343);
+	
+	var _Footer2 = _interopRequireDefault(_Footer);
+	
+	var _Users = __webpack_require__(513);
+	
+	var _Users2 = _interopRequireDefault(_Users);
+	
+	var _Infos = __webpack_require__(518);
+	
+	var _Infos2 = _interopRequireDefault(_Infos);
+	
+	var _labsActions = __webpack_require__(514);
+	
+	var labsActions = _interopRequireWildcard(_labsActions);
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	/** Components **/
+	
+	
+	/** private Components **/
+	
+	
+	/** Reducer Action**/
+	
+	
+	/** State **/
+	var mapStateToProps = function mapStateToProps(state) {
+	    return {
+	        display: state.reduceLabs.display,
+	        labs: state.reduceLabs.labs
+	    };
+	};
+	/** Action **/
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	    return {
+	        labsActions: (0, _redux.bindActionCreators)(labsActions, dispatch)
+	    };
+	};
+	
+	var Labs = function (_Component) {
+	    _inherits(Labs, _Component);
+	
+	    function Labs(props, context) {
+	        _classCallCheck(this, Labs);
+	
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Labs).call(this, props, context));
+	    }
+	
+	    _createClass(Labs, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {}
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            console.log("nextProps", nextProps);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var self = this;
+	            var activeNavBar = "Projects";
+	            console.log("self.props.labsActions", self.props);
+	
+	            console.log("self.props.labs", self.props.labs);
+	            console.log("self.props.2", self.props.labs.data[1]);
+	            console.log("self.props.3", self.props.display.content);
+	            /** Mock **/
+	
+	            var idSelected = Number(self.props.display.id) - 1;
+	            //console.log("idSelected", idSelected)
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'labs' },
+	                _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement(_NavBar2.default, { active: activeNavBar })
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'container' },
+	                    !self.props.display.content && _react2.default.createElement(_Users2.default, { labs: self.props.labs.data }),
+	                    self.props.display.content && _react2.default.createElement(_Infos2.default, { lab: self.props.labs.data[idSelected] })
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement(_Footer2.default, null)
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return Labs;
+	}(_react.Component);
+	
+	Labs.propTypes = {};
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Labs);
+
+/***/ },
+/* 513 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(77);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRedux = __webpack_require__(314);
+	
+	var _reactRouter = __webpack_require__(250);
+	
+	var _redux = __webpack_require__(321);
+	
+	var _labsActions = __webpack_require__(514);
+	
+	var labsActions = _interopRequireWildcard(_labsActions);
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	/** Reducer Action**/
+	
+	
+	/** State **/
+	var mapStateToProps = function mapStateToProps(state) {
+	    return {
+	        display: state.reduceLabs.display
+	    };
+	};
+	/** Action **/
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	    return {
+	        labsActions: (0, _redux.bindActionCreators)(labsActions, dispatch)
+	    };
+	};
+	
+	var Users = function (_Component) {
+	    _inherits(Users, _Component);
+	
+	    function Users() {
+	        _classCallCheck(this, Users);
+	
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Users).call(this));
+	    }
+	
+	    _createClass(Users, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            __webpack_require__(516);
+	        }
+	    }, {
+	        key: 'loadDisplayLabs',
+	        value: function loadDisplayLabs(id) {
+	            console.log("click", id);
+	            //console.log(this.props.labsActions);
+	            this.props.labsActions.displayByLabs(!this.props.display.content, id);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            console.log("element", this.props.display);
+	            console.log("element", this.props.labsActions);
+	            //console.log("$", $('.test'));
+	            var self = this;
+	            var beginAndEndInter = 0;
+	            var betweenInter = 0;
+	            var res = self.props.labs ? self.props.labs.length : 0;
+	            console.log("element", res);
+	            if (res === 1) {
+	                beginAndEndInter = 5;betweenInter = 0;
+	            }
+	            if (res === 2) {
+	                beginAndEndInter = 3;betweenInter = 2;
+	            }
+	            if (res === 3) {
+	                beginAndEndInter = 2;betweenInter = 1;
+	            }
+	            if (res === 4) {
+	                beginAndEndInter = 2;betweenInter = 0;
+	            }
+	            if (res === 5) {
+	                beginAndEndInter = 1;betweenInter = 0;
+	            }
+	
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'labs-users' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'container' },
+	                    _react2.default.createElement('div', { className: 'col-sm-1' }),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-sm-10 text-center' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'row box' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: '' },
+	                                _react2.default.createElement(
+	                                    'h3',
+	                                    null,
+	                                    'Profiles'
+	                                )
+	                            ),
+	                            _react2.default.createElement('br', null),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'users text-center' },
+	                                _react2.default.createElement('div', { className: "col-sm-" + beginAndEndInter }),
+	                                self.props.labs && self.props.labs.map(function (item, index) {
+	                                    //console.log("item", item);
+	                                    return _react2.default.createElement(
+	                                        'div',
+	                                        { key: index, className: 'user' },
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'col-sm-2' },
+	                                            _react2.default.createElement(
+	                                                'div',
+	                                                { className: 'jumbotron-icon text-center' },
+	                                                _react2.default.createElement(
+	                                                    'a',
+	                                                    { href: '#', onClick: self.loadDisplayLabs.bind(self, item.id) },
+	                                                    _react2.default.createElement('i', { className: 'fa fa-user fa-4', 'aria-hidden': 'true' }),
+	                                                    _react2.default.createElement(
+	                                                        'p',
+	                                                        null,
+	                                                        ' John '
+	                                                    )
+	                                                )
+	                                            )
+	                                        ),
+	                                        _react2.default.createElement('div', { className: "betweenInter col-sm-" + betweenInter })
+	                                    );
+	                                }),
+	                                _react2.default.createElement('div', { className: "col-sm-" + beginAndEndInter })
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement('div', { className: 'col-sm-1' })
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return Users;
+	}(_react.Component);
+	
+	Users.propTypes = {
+	    labs: _react.PropTypes.array
+	};
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Users);
+
+/***/ },
+/* 514 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.displayByLabs = displayByLabs;
+	exports.modifyUserbyLab = modifyUserbyLab;
+	
+	var _labsTypes = __webpack_require__(515);
+	
+	var labsTypes = _interopRequireWildcard(_labsTypes);
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
+	function displayByLabs(valueDisplay, id) {
+	    var resObj = { id: id, valueDisplay: valueDisplay };
+	    return {
+	        type: labsTypes.DISPLAY_BY_LABS,
+	        result: resObj
+	    };
+	}
+	
+	function modifyUserbyLab(profile, labs) {
+	    console.log("function test labsActions");
+	    console.log("function test profile = ", profile);
+	    console.log("function test labs = ", labs);
+	
+	    /** Detect the profile on the labs **/
+	    /** return labs **/
+	    //for ( let lab in labs) {
+	    //
+	    //}
+	    return {
+	        type: labsTypes.TEST,
+	        result: null
+	    };
+	}
+
+/***/ },
+/* 515 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var DISPLAY_BY_LABS = exports.DISPLAY_BY_LABS = "DISPLAY_BY_LABS";
+	var TEST = exports.TEST = "TEST";
+
+/***/ },
+/* 516 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(517);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(347)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(true) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept(517, function() {
+				var newContent = __webpack_require__(517);
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 517 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(346)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".box{\r\n    border: 2px solid black;\r\n}\r\n.jumbotron-icon .fa-4 {\r\n    font-size: 6em;\r\n}\r\n/*\r\n@media screen col-sm-2 (max-width: 691px) {\r\n    min-height: 0px;\r\n}\r\n*/", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 518 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(77);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRedux = __webpack_require__(314);
+	
+	var _reactRouter = __webpack_require__(250);
+	
+	var _redux = __webpack_require__(321);
+	
+	var _labsActions = __webpack_require__(514);
+	
+	var labsActions = _interopRequireWildcard(_labsActions);
+	
+	var _EditProfile = __webpack_require__(519);
+	
+	var _EditProfile2 = _interopRequireDefault(_EditProfile);
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	/** Reducer Action**/
+	
+	
+	/** State **/
+	var mapStateToProps = function mapStateToProps(state) {
+	    return {
+	        display: state.reduceLabs.display
+	    };
+	};
+	/** Action **/
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	    return {
+	        labsActions: (0, _redux.bindActionCreators)(labsActions, dispatch)
+	    };
+	};
+	
+	var Infos = function (_Component) {
+	    _inherits(Infos, _Component);
+	
+	    function Infos() {
+	        _classCallCheck(this, Infos);
+	
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Infos).call(this));
+	
+	        _this.state = {
+	            profile: null,
+	            showEdit: false
+	        };
+	        return _this;
+	    }
+	
+	    _createClass(Infos, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            __webpack_require__(521);
+	        }
+	    }, {
+	        key: 'displayOff',
+	        value: function displayOff() {
+	            this.props.labsActions.displayByLabs(!this.props.display.content);
+	        }
+	    }, {
+	        key: 'edit',
+	        value: function edit(profile) {
+	            console.log("user", profile);
+	            this.setState({ profile: profile });
+	        }
+	    }, {
+	        key: 'onClose',
+	        value: function onClose() {
+	            this.setState({ editId: null });
+	        }
+	    }, {
+	        key: 'showEditFc',
+	        value: function showEditFc() {
+	            this.setState({ showEdit: !this.state.showEdit });
+	        }
+	    }, {
+	        key: 'loadDisplayLabs',
+	        value: function loadDisplayLabs() {
+	            //console.log("click");
+	            //console.log(this.props.labsActions);
+	            // this.props.labsActions.displayByLabs( !this.props.display.content );
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var self = this;
+	            console.log("element", self.props.lab.labs[0]);
+	            var lab = [];
+	            var employees = {};
+	
+	            var _iteratorNormalCompletion = true;
+	            var _didIteratorError = false;
+	            var _iteratorError = undefined;
+	
+	            try {
+	                for (var _iterator = self.props.lab.labs[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                    var obj = _step.value;
+	
+	                    if (obj.employee) {
+	                        var _iteratorNormalCompletion2 = true;
+	                        var _didIteratorError2 = false;
+	                        var _iteratorError2 = undefined;
+	
+	                        try {
+	                            for (var _iterator2 = obj.employee[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	                                var employee = _step2.value;
+	
+	                                //console.log("element =>", employee);
+	                                lab.push({ identity: employee, country: obj.country, city: obj.city });
+	                            }
+	                        } catch (err) {
+	                            _didIteratorError2 = true;
+	                            _iteratorError2 = err;
+	                        } finally {
+	                            try {
+	                                if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	                                    _iterator2.return();
+	                                }
+	                            } finally {
+	                                if (_didIteratorError2) {
+	                                    throw _iteratorError2;
+	                                }
+	                            }
+	                        }
+	                    }
+	                }
+	            } catch (err) {
+	                _didIteratorError = true;
+	                _iteratorError = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion && _iterator.return) {
+	                        _iterator.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError) {
+	                        throw _iteratorError;
+	                    }
+	                }
+	            }
+	
+	            console.log("lab", lab);
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'labs-infos' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'container' },
+	                    'hey',
+	                    _react2.default.createElement(
+	                        'a',
+	                        { href: '#', onClick: self.displayOff.bind(self) },
+	                        ' off '
+	                    ),
+	                    self.props.lab && _react2.default.createElement(
+	                        'div',
+	                        { className: 'table-employees' },
+	                        _react2.default.createElement(
+	                            'h2',
+	                            null,
+	                            'Labs'
+	                        ),
+	                        _react2.default.createElement(
+	                            'p',
+	                            null,
+	                            'The .table-hover class enables a hover state on table rows:'
+	                        ),
+	                        _react2.default.createElement(
+	                            'table',
+	                            { className: 'table table-hover' },
+	                            _react2.default.createElement(
+	                                'thead',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'tr',
+	                                    null,
+	                                    _react2.default.createElement(
+	                                        'th',
+	                                        null,
+	                                        'FirstName'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'th',
+	                                        null,
+	                                        'LastName'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'th',
+	                                        null,
+	                                        'Mail'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'th',
+	                                        null,
+	                                        'Status'
+	                                    )
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'tbody',
+	                                null,
+	                                lab && lab.map(function (item, index) {
+	                                    //console.log("item", item);
+	                                    return _react2.default.createElement(
+	                                        'tr',
+	                                        { key: index, onClick: self.edit.bind(self, item) },
+	                                        _react2.default.createElement(
+	                                            'td',
+	                                            null,
+	                                            item.identity.firstName
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            'td',
+	                                            null,
+	                                            item.identity.lastName
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            'td',
+	                                            null,
+	                                            item.identity.mail
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            'td',
+	                                            null,
+	                                            item.identity.status
+	                                        )
+	                                    );
+	                                })
+	                            )
+	                        )
+	                    ),
+	                    self.state.profile && _react2.default.createElement(_EditProfile2.default, { profile: self.state.profile })
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return Infos;
+	}(_react.Component);
+	
+	Infos.propTypes = {
+	    lab: _react.PropTypes.object
+	};
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Infos);
+
+/***/ },
+/* 519 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(77);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRedux = __webpack_require__(314);
+	
+	var _reactRouter = __webpack_require__(250);
+	
+	var _redux = __webpack_require__(321);
+	
+	var _Input = __webpack_require__(520);
+	
+	var _Input2 = _interopRequireDefault(_Input);
+	
+	var _labsActions = __webpack_require__(514);
+	
+	var labsActions = _interopRequireWildcard(_labsActions);
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	/** Reducer Action**/
+	
+	
+	/** State **/
+	var mapStateToProps = function mapStateToProps(state) {
+	    return {
+	        test: state.reduceLabs.test,
+	        labs: state.reduceLabs.labs
+	    };
+	};
+	/** Action **/
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	    return {
+	        labsActions: (0, _redux.bindActionCreators)(labsActions, dispatch)
+	    };
+	};
+	
+	var EditProfile = function (_Component) {
+	    _inherits(EditProfile, _Component);
+	
+	    function EditProfile(props, context) {
+	        _classCallCheck(this, EditProfile);
+	
+	        //console.log("props", this.props, this.props.profile.identity.firstName);
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(EditProfile).call(this, props, context));
+	
+	        _this.state = {
+	            //profile: this.props.profile,
+	            firstName: _this.props.profile.identity.firstName,
+	            lastName: _this.props.profile.identity.lastName,
+	            mail: _this.props.profile.identity.mail
+	        };
+	        return _this;
+	    }
+	
+	    _createClass(EditProfile, [{
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            //console.log("nextProps", nextProps);
+	            var self = this;
+	            if (nextProps.profile) {
+	                if (nextProps.profile.identity.id !== this.props.profile.identity.firstName) {
+	                    self.setState({
+	                        //profile: nextProps.profile,
+	                        firstName: nextProps.profile.identity.firstName,
+	                        lastName: nextProps.profile.identity.lastName,
+	                        mail: nextProps.profile.identity.mail
+	                    });
+	                }
+	            }
+	        }
+	    }, {
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            //require('./info.css');
+	        }
+	    }, {
+	        key: 'handleChangeFirstName',
+	        value: function handleChangeFirstName(event) {
+	            //console.log("value", event.target.value);
+	            this.setState({ firstName: event.target.value });
+	        }
+	    }, {
+	        key: 'handleChangeLastName',
+	        value: function handleChangeLastName(event) {
+	            //console.log("value", event.target.value);
+	            this.setState({ lastName: event.target.value });
+	        }
+	    }, {
+	        key: 'handleChangeMail',
+	        value: function handleChangeMail(event) {
+	            //console.log("value", event.target.value);
+	            this.setState({ mail: event.target.value });
+	        }
+	    }, {
+	        key: '_handleSaveForm',
+	        value: function _handleSaveForm() {
+	            console.log("_handleSaveForm test labsActions");
+	            console.log("_handleSaveForm test labsActions ", this.props.labsActions);
+	            var profile = {
+	                id: this.props.profile.identity.id,
+	                firstName: this.state.firstName,
+	                lastName: this.state.lastName,
+	                mail: this.state.mail
+	            };
+	            this.props.labsActions.modifyUserbyLab(profile, this.props.labs);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var self = this;
+	            // console.log("state", self.state.firstName);
+	            //console.log("element", self.props.lab.labs[0]);
+	
+	
+	            /**
+	             <div className="form-group">
+	             <div className="col-sm-3">
+	             <label for="firstName">Firstname</label>
+	             </div>
+	               {!self.state.showEdit &&
+	             <div className="col-sm-9">
+	                 <label onClick={self.showEditFc.bind(self)}>{item.identity.firstName}</label>
+	             </div>
+	             }
+	             {self.state.showEdit &&
+	             <div>
+	                 <div className="col-sm-7">
+	                     <input className="form-control input-form" id="firstName" value={item.identity.firstName}/>
+	                 </div>
+	                 <div className="col-sm-1 col-xs-1">
+	                     <label onClick={self.showEditFc.bind(self)}><i className="fa fa-check" aria-hidden="true"></i></label>
+	                 </div>
+	                 <div className="col-sm-1">
+	                     <label onClick={self.showEditFc.bind(self)}><i className="fa fa-times" aria-hidden="true"></i></label>
+	                 </div>
+	             </div>
+	             }
+	             </div>
+	               <div className="form-group col-sm-12">
+	             <button onClick={self.onClose.bind(self)}> button </button>
+	             </div>
+	            **/
+	
+	            console.log("profile", self.props.profile);
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'edit-profile' },
+	                _react2.default.createElement(
+	                    'form',
+	                    null,
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-sm-6' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(_Input2.default, { classNames: { icon: "fa-fa" },
+	                                text: 'Firstname',
+	                                value: self.state.firstName,
+	                                onChange: self.handleChangeFirstName.bind(self) })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(_Input2.default, { classNames: { icon: "fa-fa" },
+	                                text: 'Lastname',
+	                                value: self.state.lastName,
+	                                onChange: self.handleChangeLastName.bind(self) })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(_Input2.default, { classNames: { icon: "fa-fa" },
+	                                text: 'Mail',
+	                                value: self.state.mail,
+	                                onChange: self.handleChangeMail.bind(self) })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group btn-toolbar' },
+	                            _react2.default.createElement(
+	                                'button',
+	                                { type: 'button', className: 'btn btn-success', onClick: self._handleSaveForm.bind(self) },
+	                                ' Save '
+	                            ),
+	                            _react2.default.createElement(
+	                                'button',
+	                                { type: 'reset', className: 'btn btn-danger' },
+	                                ' Reset '
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'p',
+	                            null,
+	                            ' coucou '
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return EditProfile;
+	}(_react.Component);
+	
+	EditProfile.propTypes = {
+	    profile: _react.PropTypes.object
+	};
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(EditProfile);
+
+/***/ },
+/* 520 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(77);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRedux = __webpack_require__(314);
+	
+	var _reactRouter = __webpack_require__(250);
+	
+	var _redux = __webpack_require__(321);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	/** Reducer Action**/
+	//import * as labsActions from '../../redux/actions/labsActions';
+	
+	/** State **/
+	var mapStateToProps = function mapStateToProps(state) {
+	    return {
+	        //display: state.reduceLabs.display
+	    };
+	};
+	/** Action **/
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	    return {
+	        //labsActions: bindActionCreators(labsActions, dispatch)
+	    };
+	};
+	
+	var Input = function (_Component) {
+	    _inherits(Input, _Component);
+	
+	    function Input(props, context) {
+	        _classCallCheck(this, Input);
+	
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Input).call(this, props, context));
+	
+	        _this.state = {
+	            value: _this.props.value || ''
+	        };
+	        return _this;
+	    }
+	
+	    _createClass(Input, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            //require('./info.css');
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            if (nextProps.value !== this.state.value) {
+	                this.setState({ value: nextProps.value });
+	            }
+	        }
+	    }, {
+	        key: '_defaultOnChange',
+	        value: function _defaultOnChange(event) {
+	            //console.log("event input ", event);
+	            this.setState({ value: event.target.value });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var self = this;
+	            //console.log("render input", self.state.value);
+	            //console.log("element", self.props.lab.labs[0]);
+	            var onChange = this.props.onChange;
+	
+	            onChange = onChange || this._defaultOnChange.bind(this);
+	
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'input' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'form-group' },
+	                    _react2.default.createElement(
+	                        'label',
+	                        { type: 'text' },
+	                        self.props.text,
+	                        ' '
+	                    ),
+	                    _react2.default.createElement('input', { className: 'form-control', id: 'firstName', value: self.state.value, onChange: onChange })
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return Input;
+	}(_react.Component);
+	
+	Input.propTypes = {
+	    classNames: _react.PropTypes.object,
+	    value: _react.PropTypes.string
+	};
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Input);
+
+/***/ },
+/* 521 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(522);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(347)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(true) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept(522, function() {
+				var newContent = __webpack_require__(522);
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 522 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(346)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".labs-infos .table-employees{\r\n    height: 500px;\r\n}\r\n.labs-infos .input-form{\r\n    margin-top: -5px;\r\n}\r\n", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 523 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	
 	var _redux = __webpack_require__(321);
 	
-	var _textTest = __webpack_require__(513);
+	var _textTest = __webpack_require__(524);
 	
 	var _textTest2 = _interopRequireDefault(_textTest);
+	
+	var _reduceLabs = __webpack_require__(525);
+	
+	var _reduceLabs2 = _interopRequireDefault(_reduceLabs);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	/** List of reducers **/
+	
+	
+	/** Global Web site **/
+	var rootReducer = (0, _redux.combineReducers)({
+	  textTest: _textTest2.default, reduceLabs: _reduceLabs2.default
+	});
+	
+	/** Others apps  **/
 	/**
 	 * Created by Administrateur on 14/08/2016.
 	 */
-	
-	var rootReducer = (0, _redux.combineReducers)({
-	  textTest: _textTest2.default
-	});
 	
 	var store = (0, _redux.createStore)(rootReducer);
 	
 	exports.default = store;
 
 /***/ },
-/* 513 */
+/* 524 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63444,13 +64516,98 @@
 	}
 
 /***/ },
-/* 514 */
+/* 525 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	exports.default = displayByLabs;
+	
+	var _labsTypes = __webpack_require__(515);
+	
+	var types = _interopRequireWildcard(_labsTypes);
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
+	var initialState = {
+	
+	    labs: {
+	        data: [{ id: '1',
+	            labs: [{
+	                country: 'France',
+	                city: "Paris",
+	                employee: [{ id: "FRPA001", firstName: "John", lastName: "Doe", mail: "john@example.com", status: "Manager" }, { id: "FRPA002", firstName: "jiji", lastName: "Doe", mail: "jiji@example.com", status: "employee" }, { id: "FRPA003", firstName: "juju", lastName: "Doe", mail: "juju@example.com", status: "employee" }]
+	            }, {
+	                country: 'France',
+	                city: "Lyon",
+	                employee: [{ id: "FRLY001", firstName: "JohnL", lastName: "Doe", mail: "john@example.com", status: "Manager" }, { id: "FRLY002", firstName: "jijiL", lastName: "Doe", mail: "jiji@example.com", status: "employee" }, { id: "FRLY003", firstName: "jujuL", lastName: "Doe", mail: "juju@example.com", status: "employee" }]
+	            }]
+	        }, {
+	            id: '2',
+	            labs: [{
+	                country: 'England',
+	                city: "London",
+	                employee: [{ id: "ENLO001", firstName: "Jane", lastName: "Doe", mail: "jane@example.com", status: "Manager" }, { id: "ENLO002", firstName: "jojo", lastName: "Doe", mail: "jojo@example.com", status: "employee" }, { id: "ENLO003", firstName: "jaja", lastName: "Doe", mail: "jaja@example.com", status: "employee" }]
+	            }]
+	        }, {
+	            id: '3',
+	            labs: [{
+	                country: 'Belgium',
+	                city: "Bruxelles",
+	                employee: [{ id: "BEBR001", firstName: "Jacky", lastName: "Doe", mail: "jacky@example.com", status: "Manager" }, { id: "BEBR002", firstName: "jeje", lastName: "Doe", mail: "jeje@example.com", status: "employee" }, { id: "BEBR003", firstName: "jaja", lastName: "Doe", mail: "jaja@example.com", status: "employee" }]
+	            }]
+	        }]
+	    },
+	    display: {
+	        id: 0,
+	        content: false
+	    },
+	    test: {
+	        val: null
+	    }
+	};
+	
+	function displayByLabs() {
+	    var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
+	    var action = arguments[1];
+	
+	    console.log("displayByLabs begin :", action);
+	    switch (action.type) {
+	
+	        case types.DISPLAY_BY_LABS:
+	            return _extends({}, state, {
+	                display: {
+	                    id: action.result.id,
+	                    content: action.result.valueDisplay
+	                }
+	            });
+	
+	        case types.TEST:
+	            return _extends({}, state, {
+	                test: {
+	                    val: action.result
+	                }
+	            });
+	
+	        default:
+	            return state;
+	    }
+	}
+
+/***/ },
+/* 526 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(515);
+	var content = __webpack_require__(527);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(347)(content, {});
@@ -63459,8 +64616,8 @@
 	if(true) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept(515, function() {
-				var newContent = __webpack_require__(515);
+			module.hot.accept(527, function() {
+				var newContent = __webpack_require__(527);
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -63470,7 +64627,7 @@
 	}
 
 /***/ },
-/* 515 */
+/* 527 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(346)();

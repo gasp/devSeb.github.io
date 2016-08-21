@@ -125,21 +125,25 @@ class ChartJs extends Component {
                         <SideBarLeft />
                     }
                 </div>
-
+                <br/>
+                <br/>
                 <div className="container">
-                    <h2>ChartJs Project</h2>
+                    <div className={ (this.state.sideBarLeftDisplay) ? "margin" : ""}>
 
-                    <div className="container ">
-                        <div className="row text-center">
-                            <div className="col-md-12" id="element"></div>
+                        <h2>ChartJs Project</h2>
+
+                        <div className="container ">
+                            <div className="row text-center">
+                                <div className="col-sm-12" id="element"></div>
+                            </div>
                         </div>
-                    </div>
 
-                    {this.state.selectedElement &&
-                    <div className="container">
-                        <LineChartJsCustom selectedElement={this.state.selectedElement}/>
+                        {this.state.selectedElement &&
+                        <div className="container">
+                            <LineChartJsCustom selectedElement={this.state.selectedElement}/>
+                        </div>
+                        }
                     </div>
-                    }
                 </div>
 
                 <div>
