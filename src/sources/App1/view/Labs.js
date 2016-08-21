@@ -36,21 +36,25 @@ class Labs extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log("nextProps", nextProps);
+        console.log("Labs nextProps", nextProps);
+        if ( nextProps.labs.data.date !== this.props.labs.data.date) {
+            this.props.labs.data = null;
+            this.props.labs.data = nextProps.labs.data;
+        }
     }
 
     render() {
         var self = this;
         var activeNavBar = "Projects";
-        console.log("self.props.labsActions", self.props);
-
-        console.log("self.props.labs", self.props.labs);
-        console.log("self.props.2", self.props.labs.data[1]);
-        console.log("self.props.3", self.props.display.content);
+        //console.log("self.props.labsActions", self.props);
+        //
+        //console.log("self.props.labs", self.props.labs);
+        //console.log("self.props.2", self.props.labs.data[1]);
+        //console.log("self.props.3", self.props.display.content);
         /** Mock **/
 
         var idSelected = Number(self.props.display.id) - 1;
-        //console.log("idSelected", idSelected)
+        //console.log("idSelected", idSelected);
         return(
             <div className="labs">
                 <div>
@@ -58,11 +62,15 @@ class Labs extends Component {
                 </div>
 
                <div className="container">
-                   {!self.props.display.content &&
-                        <Users labs={self.props.labs.data}/>
+                   {!self.props.display.content && self.props.labs.data &&
+                       <div>
+                            <Users labs={self.props.labs.data}/>
+                       </div>
                    }
-                   {self.props.display.content &&
-                        <Infos lab={self.props.labs.data[idSelected]}/>
+                   {self.props.display.content && self.props.labs.data &&
+                   <div>
+                        <Infos id={idSelected}/>
+                   </div>
                    }
                </div>
 

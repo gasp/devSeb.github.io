@@ -1,5 +1,7 @@
 .labs-infos .table-employees{
-    height: 500px;
+    height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 .labs-infos .input-form{
     margin-top: -5px;

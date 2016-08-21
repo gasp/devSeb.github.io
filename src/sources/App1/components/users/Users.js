@@ -36,6 +36,7 @@ class Users extends Component {
     }
 
     render() {
+        console.log("render users class");
         console.log("element", this.props.display);
         console.log("element", this.props.labsActions);
         //console.log("$", $('.test'));

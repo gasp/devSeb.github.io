@@ -5,6 +5,7 @@ import * as types from '../constants/labsTypes';
 const initialState = {
 
     labs: {
+        date: 1471781338,
         data: [
             {   id : '1',
                 labs: [
@@ -59,8 +60,14 @@ const initialState = {
         id: 0,
         content : false
     },
-    test: {
-        val: null
+    editUser: {
+        display : false
+    },
+    showEditProfile: {
+        display: false
+    },
+    showStatsByProfile: {
+        display: false
     }
 };
 
@@ -77,11 +84,30 @@ export default function displayByLabs( state = initialState , action) {
                 }
             };
 
-        case types.TEST:
+        case types.EDIT_DATA_LABS:
             return {
                 ...state,
-                test : {
-                   val: action.result
+                labs : {
+                   data: action.result
+                },
+                showEditProfile: {
+                    display: false
+                }
+            };
+
+        case types.SHOW_EDIT_PROFILE:
+            return {
+                ...state,
+                showEditProfile: {
+                    display: action.result
+                }
+            };
+
+        case types.SHOW_STATS_BY_PROFILE:
+            return {
+                ...state,
+                showStatsByProfile: {
+                    display: action.result
                 }
             };
 

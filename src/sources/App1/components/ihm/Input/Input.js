@@ -19,6 +19,7 @@ class Input extends Component {
 
     static propTypes = {
         classNames: PropTypes.object,
+        text: PropTypes.string,
         value: PropTypes.string
     };
 
@@ -27,9 +28,6 @@ class Input extends Component {
         this.state = {
             value: this.props.value || ''
         };
-    }
-    componentDidMount () {
-        //require('./info.css');
     }
 
     componentWillReceiveProps (nextProps) {
@@ -44,6 +42,7 @@ class Input extends Component {
     }
 
     render() {
+        console.log("render Input");
         var self = this;
         //console.log("render input", self.state.value);
         //console.log("element", self.props.lab.labs[0]);
@@ -55,10 +54,10 @@ class Input extends Component {
             <div className="input">
                 <div className="form-group">
                     <label type="text">{self.props.text} </label>
-                    <input className="form-control" id="firstName" value={self.state.value} onChange={onChange}/>
+                    <input className="form-control" value={self.state.value} onChange={onChange}/>
                 </div>
             </div>
         );
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Input);
+export default connect(mapStateToProps, mapDispatchToProps) (Input);

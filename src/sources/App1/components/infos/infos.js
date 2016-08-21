@@ -7,10 +7,14 @@ import { bindActionCreators } from 'redux';
 import * as labsActions from '../../redux/actions/labsActions';
 
 import EditProfile from '../editProfile/EditProfile';
+import StatByProfile from '../statByProfile/StatByProfile';
 
 /** State **/
 const mapStateToProps = (state) => ({
-    display: state.reduceLabs.display
+    display: state.reduceLabs.display,
+    labs: state.reduceLabs.labs,
+    showEditProfile: state.reduceLabs.showEditProfile,
+    showStatsByProfile: state.reduceLabs.showStatsByProfile
 });
 /** Action **/
 const mapDispatchToProps = (dispatch) => ({
@@ -20,14 +24,14 @@ const mapDispatchToProps = (dispatch) => ({
 class Infos extends Component {
 
     static propTypes = {
-        lab: PropTypes.object
+        //lab: PropTypes.object
+        id: PropTypes.number
     };
 
     constructor() {
         super();
         this.state = {
-            profile: null,
-            showEdit: false
+            profile: null
         }
     }
 
@@ -35,13 +39,28 @@ class Infos extends Component {
         require('./info.css');
     }
 
-    displayOff() {
-        this.props.labsActions.displayByLabs( !this.props.display.content);
+    componentWillReceiveProps(nextProps) {
+        console.log("Infos nextProps", nextProps);
+        if ( nextProps.labs.data.date !== this.props.labs.data.date) {
+            this.props.labs.data = nextProps.labs.data;
+        }
     }
 
-    edit(profile){
+    displayOff() {
+        this.props.labsActions.displayByLabs( !this.props.display.content);
+        this.props.labsActions.showEditProfile(false);
+    }
+
+    editProfile(profile) {
         console.log("user", profile);
+        this.props.labsActions.showEditProfile(true);
         this.setState({profile: profile});
+    }
+
+    statByProfile() {
+        console.log("user");
+        this.props.labsActions.showEditStat(true);
+        this.props.labsActions.showEditProfile(false);
     }
 
     onClose() {
@@ -52,6 +71,7 @@ class Infos extends Component {
     }
 
 
+
     loadDisplayLabs() {
         //console.log("click");
         //console.log(this.props.labsActions);
@@ -59,12 +79,11 @@ class Infos extends Component {
     }
 
     render() {
+        console.log("render info");
         var self = this;
-        console.log("element", self.props.lab.labs[0]);
         var lab = [];
         var employees = {};
-
-        for ( let obj of self.props.lab.labs) {
+        for ( let obj of self.props.labs.data[self.props.id].labs) {
             if ( obj.employee ) {
                 for (let employee of obj.employee){
                     //console.log("element =>", employee);
@@ -80,40 +99,51 @@ class Infos extends Component {
                     hey
                     <a href="#" onClick={self.displayOff.bind(self)}> off </a>
 
-                    {self.props.lab &&
-                        <div className="table-employees">
+                    {lab &&
+                        <div className="">
                             <h2>Labs</h2>
                             <p>The .table-hover class enables a hover state on table rows:</p>
-                            <table className="table table-hover">
-                                <thead>
-                                <tr>
-                                    <th>FirstName</th>
-                                    <th>LastName</th>
-                                    <th>Mail</th>
-                                    <th>Status</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {lab && lab.map(function(item, index) {
-                                    //console.log("item", item);
-                                    return(
-                                    <tr key={index} onClick={self.edit.bind(self, item )}>
-                                        <td>{item.identity.firstName}</td>
-                                        <td>{item.identity.lastName}</td>
-                                        <td>{item.identity.mail}</td>
-                                        <td>{item.identity.status}</td>
+                            <br/>
+                            <div className="table-employees">
+                                <table className="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>FirstName</th>
+                                        <th>LastName</th>
+                                        <th>Mail</th>
+                                        <th>Status</th>
+                                        <th> </th>
                                     </tr>
-                                    );
-                                })}
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody className="">
+                                    {lab && lab.map(function(item, index) {
+                                        return(
+                                        <tr key={index} >
+                                            <td onClick={self.statByProfile.bind(self )}>{item.identity.firstName}</td>
+                                            <td onClick={self.statByProfile.bind(self )}>{item.identity.lastName}</td>
+                                            <td onClick={self.statByProfile.bind(self )}>{item.identity.mail}</td>
+                                            <td onClick={self.statByProfile.bind(self )}>{item.identity.status}</td>
+                                            <td><i className="fa fa-pencil-square-o" aria-hidden="true" onClick={self.editProfile.bind(self, item )}></i> </td>
+                                        </tr>
+                                        );
+                                    })}
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     }
+                    <br/>
+                    <br/>
 
-                    {self.state.profile &&
-                        <EditProfile profile={self.state.profile} />
-                    }
-
+                    <div className="col-sm-12">
+                        {self.props.showEditProfile.display &&
+                            <EditProfile profile={self.state.profile} />
+                        }
+                        <br/>
+                        {self.props.showStatsByProfile.display &&
+                            <StatByProfile  profile={self.state.profile}/>
+                        }
+                    </div>
                 </div>
             </div>
         );

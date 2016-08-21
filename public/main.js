@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "15ec2d6c4337c9a663c9"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "6f32cbbfd407f2035e6c"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -8270,7 +8270,7 @@
 	
 	var _reactRedux = __webpack_require__(314);
 	
-	var _Store = __webpack_require__(523);
+	var _Store = __webpack_require__(526);
 	
 	var _Store2 = _interopRequireDefault(_Store);
 	
@@ -8282,7 +8282,7 @@
 	//window.jQuery = $;
 	
 	/** Css **/
-	__webpack_require__(526);
+	__webpack_require__(529);
 	/** bootstrap loader **/
 	//require('bootstrap-loader');
 	
@@ -63467,22 +63467,26 @@
 	    }, {
 	        key: 'componentWillReceiveProps',
 	        value: function componentWillReceiveProps(nextProps) {
-	            console.log("nextProps", nextProps);
+	            console.log("Labs nextProps", nextProps);
+	            if (nextProps.labs.data.date !== this.props.labs.data.date) {
+	                this.props.labs.data = null;
+	                this.props.labs.data = nextProps.labs.data;
+	            }
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var self = this;
 	            var activeNavBar = "Projects";
-	            console.log("self.props.labsActions", self.props);
-	
-	            console.log("self.props.labs", self.props.labs);
-	            console.log("self.props.2", self.props.labs.data[1]);
-	            console.log("self.props.3", self.props.display.content);
+	            //console.log("self.props.labsActions", self.props);
+	            //
+	            //console.log("self.props.labs", self.props.labs);
+	            //console.log("self.props.2", self.props.labs.data[1]);
+	            //console.log("self.props.3", self.props.display.content);
 	            /** Mock **/
 	
 	            var idSelected = Number(self.props.display.id) - 1;
-	            //console.log("idSelected", idSelected)
+	            //console.log("idSelected", idSelected);
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'labs' },
@@ -63494,8 +63498,16 @@
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'container' },
-	                    !self.props.display.content && _react2.default.createElement(_Users2.default, { labs: self.props.labs.data }),
-	                    self.props.display.content && _react2.default.createElement(_Infos2.default, { lab: self.props.labs.data[idSelected] })
+	                    !self.props.display.content && self.props.labs.data && _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        _react2.default.createElement(_Users2.default, { labs: self.props.labs.data })
+	                    ),
+	                    self.props.display.content && self.props.labs.data && _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        _react2.default.createElement(_Infos2.default, { id: idSelected })
+	                    )
 	                ),
 	                _react2.default.createElement(
 	                    'div',
@@ -63588,6 +63600,7 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	            console.log("render users class");
 	            console.log("element", this.props.display);
 	            console.log("element", this.props.labsActions);
 	            //console.log("$", $('.test'));
@@ -63693,6 +63706,8 @@
 	    value: true
 	});
 	exports.displayByLabs = displayByLabs;
+	exports.showEditProfile = showEditProfile;
+	exports.showEditStat = showEditStat;
 	exports.modifyUserbyLab = modifyUserbyLab;
 	
 	var _labsTypes = __webpack_require__(515);
@@ -63709,19 +63724,117 @@
 	    };
 	}
 	
+	function showEditProfile(val) {
+	    console.log("showEditProfile", val);
+	    return {
+	        type: labsTypes.SHOW_EDIT_PROFILE,
+	        result: val
+	    };
+	}
+	
+	function showEditStat(val) {
+	    console.log("showEditStat", val);
+	    return {
+	        type: labsTypes.SHOW_STATS_BY_PROFILE,
+	        result: val
+	    };
+	}
+	
 	function modifyUserbyLab(profile, labs) {
-	    console.log("function test labsActions");
-	    console.log("function test profile = ", profile);
-	    console.log("function test labs = ", labs);
+	    //console.log("function test labsActions");
+	    //console.log("function test profile = ", profile);
+	    //console.log("function test labs = ", labs);
 	
 	    /** Detect the profile on the labs **/
 	    /** return labs **/
-	    //for ( let lab in labs) {
-	    //
-	    //}
+	    var profileId = profile.id;
+	    var _iteratorNormalCompletion = true;
+	    var _didIteratorError = false;
+	    var _iteratorError = undefined;
+	
+	    try {
+	        for (var _iterator = labs[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	            var plabs = _step.value;
+	
+	            //console.log("lab ", labs);
+	            var _iteratorNormalCompletion2 = true;
+	            var _didIteratorError2 = false;
+	            var _iteratorError2 = undefined;
+	
+	            try {
+	                for (var _iterator2 = plabs.labs[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	                    var plab = _step2.value;
+	
+	                    //console.log("lab =", lab);
+	                    var _iteratorNormalCompletion3 = true;
+	                    var _didIteratorError3 = false;
+	                    var _iteratorError3 = undefined;
+	
+	                    try {
+	                        for (var _iterator3 = plab.employee[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+	                            var pemployee = _step3.value;
+	
+	                            //console.log("employee =", employee);
+	                            if (pemployee.id === profileId) {
+	                                console.log("employee.identity ", pemployee.firstName);
+	                                pemployee.firstName = profile.firstName;
+	                                pemployee.lastName = profile.lastName;
+	                                pemployee.mail = profile.mail;
+	                                pemployee.status = profile.status;
+	                            }
+	                        }
+	                    } catch (err) {
+	                        _didIteratorError3 = true;
+	                        _iteratorError3 = err;
+	                    } finally {
+	                        try {
+	                            if (!_iteratorNormalCompletion3 && _iterator3.return) {
+	                                _iterator3.return();
+	                            }
+	                        } finally {
+	                            if (_didIteratorError3) {
+	                                throw _iteratorError3;
+	                            }
+	                        }
+	                    }
+	                }
+	            } catch (err) {
+	                _didIteratorError2 = true;
+	                _iteratorError2 = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	                        _iterator2.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError2) {
+	                        throw _iteratorError2;
+	                    }
+	                }
+	            }
+	        }
+	        //console.log("labs", labs);
+	        /** new timeStamp **/
+	    } catch (err) {
+	        _didIteratorError = true;
+	        _iteratorError = err;
+	    } finally {
+	        try {
+	            if (!_iteratorNormalCompletion && _iterator.return) {
+	                _iterator.return();
+	            }
+	        } finally {
+	            if (_didIteratorError) {
+	                throw _iteratorError;
+	            }
+	        }
+	    }
+	
+	    labs.date = Math.round(+new Date() / 1000);
+	
 	    return {
-	        type: labsTypes.TEST,
-	        result: null
+	        type: labsTypes.EDIT_DATA_LABS,
+	        result: labs
 	    };
 	}
 
@@ -63735,7 +63848,9 @@
 	  value: true
 	});
 	var DISPLAY_BY_LABS = exports.DISPLAY_BY_LABS = "DISPLAY_BY_LABS";
-	var TEST = exports.TEST = "TEST";
+	var EDIT_DATA_LABS = exports.EDIT_DATA_LABS = "EDIT_DATA_LABS";
+	var SHOW_EDIT_PROFILE = exports.SHOW_EDIT_PROFILE = "SHOW_EDIT_PROFILE";
+	var SHOW_STATS_BY_PROFILE = exports.SHOW_STATS_BY_PROFILE = "SHOW_STATS_BY_PROFILE";
 
 /***/ },
 /* 516 */
@@ -63807,6 +63922,10 @@
 	
 	var _EditProfile2 = _interopRequireDefault(_EditProfile);
 	
+	var _StatByProfile = __webpack_require__(523);
+	
+	var _StatByProfile2 = _interopRequireDefault(_StatByProfile);
+	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -63823,7 +63942,10 @@
 	/** State **/
 	var mapStateToProps = function mapStateToProps(state) {
 	    return {
-	        display: state.reduceLabs.display
+	        display: state.reduceLabs.display,
+	        labs: state.reduceLabs.labs,
+	        showEditProfile: state.reduceLabs.showEditProfile,
+	        showStatsByProfile: state.reduceLabs.showStatsByProfile
 	    };
 	};
 	/** Action **/
@@ -63842,8 +63964,7 @@
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Infos).call(this));
 	
 	        _this.state = {
-	            profile: null,
-	            showEdit: false
+	            profile: null
 	        };
 	        return _this;
 	    }
@@ -63851,18 +63972,35 @@
 	    _createClass(Infos, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            __webpack_require__(521);
+	            __webpack_require__(524);
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            console.log("Infos nextProps", nextProps);
+	            if (nextProps.labs.data.date !== this.props.labs.data.date) {
+	                this.props.labs.data = nextProps.labs.data;
+	            }
 	        }
 	    }, {
 	        key: 'displayOff',
 	        value: function displayOff() {
 	            this.props.labsActions.displayByLabs(!this.props.display.content);
+	            this.props.labsActions.showEditProfile(false);
 	        }
 	    }, {
-	        key: 'edit',
-	        value: function edit(profile) {
+	        key: 'editProfile',
+	        value: function editProfile(profile) {
 	            console.log("user", profile);
+	            this.props.labsActions.showEditProfile(true);
 	            this.setState({ profile: profile });
+	        }
+	    }, {
+	        key: 'statByProfile',
+	        value: function statByProfile() {
+	            console.log("user");
+	            this.props.labsActions.showEditStat(true);
+	            this.props.labsActions.showEditProfile(false);
 	        }
 	    }, {
 	        key: 'onClose',
@@ -63884,17 +64022,16 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	            console.log("render info");
 	            var self = this;
-	            console.log("element", self.props.lab.labs[0]);
 	            var lab = [];
 	            var employees = {};
-	
 	            var _iteratorNormalCompletion = true;
 	            var _didIteratorError = false;
 	            var _iteratorError = undefined;
 	
 	            try {
-	                for (var _iterator = self.props.lab.labs[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                for (var _iterator = self.props.labs.data[self.props.id].labs[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	                    var obj = _step.value;
 	
 	                    if (obj.employee) {
@@ -63953,9 +64090,9 @@
 	                        { href: '#', onClick: self.displayOff.bind(self) },
 	                        ' off '
 	                    ),
-	                    self.props.lab && _react2.default.createElement(
+	                    lab && _react2.default.createElement(
 	                        'div',
-	                        { className: 'table-employees' },
+	                        { className: '' },
 	                        _react2.default.createElement(
 	                            'h2',
 	                            null,
@@ -63966,71 +64103,94 @@
 	                            null,
 	                            'The .table-hover class enables a hover state on table rows:'
 	                        ),
+	                        _react2.default.createElement('br', null),
 	                        _react2.default.createElement(
-	                            'table',
-	                            { className: 'table table-hover' },
+	                            'div',
+	                            { className: 'table-employees' },
 	                            _react2.default.createElement(
-	                                'thead',
-	                                null,
+	                                'table',
+	                                { className: 'table table-hover' },
 	                                _react2.default.createElement(
-	                                    'tr',
+	                                    'thead',
 	                                    null,
 	                                    _react2.default.createElement(
-	                                        'th',
-	                                        null,
-	                                        'FirstName'
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        'th',
-	                                        null,
-	                                        'LastName'
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        'th',
-	                                        null,
-	                                        'Mail'
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        'th',
-	                                        null,
-	                                        'Status'
-	                                    )
-	                                )
-	                            ),
-	                            _react2.default.createElement(
-	                                'tbody',
-	                                null,
-	                                lab && lab.map(function (item, index) {
-	                                    //console.log("item", item);
-	                                    return _react2.default.createElement(
 	                                        'tr',
-	                                        { key: index, onClick: self.edit.bind(self, item) },
+	                                        null,
 	                                        _react2.default.createElement(
-	                                            'td',
+	                                            'th',
 	                                            null,
-	                                            item.identity.firstName
+	                                            'FirstName'
 	                                        ),
 	                                        _react2.default.createElement(
-	                                            'td',
+	                                            'th',
 	                                            null,
-	                                            item.identity.lastName
+	                                            'LastName'
 	                                        ),
 	                                        _react2.default.createElement(
-	                                            'td',
+	                                            'th',
 	                                            null,
-	                                            item.identity.mail
+	                                            'Mail'
 	                                        ),
 	                                        _react2.default.createElement(
-	                                            'td',
+	                                            'th',
 	                                            null,
-	                                            item.identity.status
+	                                            'Status'
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            'th',
+	                                            null,
+	                                            ' '
 	                                        )
-	                                    );
-	                                })
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'tbody',
+	                                    { className: '' },
+	                                    lab && lab.map(function (item, index) {
+	                                        return _react2.default.createElement(
+	                                            'tr',
+	                                            { key: index },
+	                                            _react2.default.createElement(
+	                                                'td',
+	                                                { onClick: self.statByProfile.bind(self) },
+	                                                item.identity.firstName
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                'td',
+	                                                { onClick: self.statByProfile.bind(self) },
+	                                                item.identity.lastName
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                'td',
+	                                                { onClick: self.statByProfile.bind(self) },
+	                                                item.identity.mail
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                'td',
+	                                                { onClick: self.statByProfile.bind(self) },
+	                                                item.identity.status
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                'td',
+	                                                null,
+	                                                _react2.default.createElement('i', { className: 'fa fa-pencil-square-o', 'aria-hidden': 'true', onClick: self.editProfile.bind(self, item) }),
+	                                                ' '
+	                                            )
+	                                        );
+	                                    })
+	                                )
 	                            )
 	                        )
 	                    ),
-	                    self.state.profile && _react2.default.createElement(_EditProfile2.default, { profile: self.state.profile })
+	                    _react2.default.createElement('br', null),
+	                    _react2.default.createElement('br', null),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-sm-12' },
+	                        self.props.showEditProfile.display && _react2.default.createElement(_EditProfile2.default, { profile: self.state.profile }),
+	                        _react2.default.createElement('br', null),
+	                        self.props.showStatsByProfile.display && _react2.default.createElement(_StatByProfile2.default, { profile: self.state.profile })
+	                    )
 	                )
 	            );
 	        }
@@ -64040,7 +64200,8 @@
 	}(_react.Component);
 	
 	Infos.propTypes = {
-	    lab: _react.PropTypes.object
+	    //lab: PropTypes.object
+	    id: _react.PropTypes.number
 	};
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Infos);
 
@@ -64090,7 +64251,6 @@
 	/** State **/
 	var mapStateToProps = function mapStateToProps(state) {
 	    return {
-	        test: state.reduceLabs.test,
 	        labs: state.reduceLabs.labs
 	    };
 	};
@@ -64114,15 +64274,21 @@
 	            //profile: this.props.profile,
 	            firstName: _this.props.profile.identity.firstName,
 	            lastName: _this.props.profile.identity.lastName,
-	            mail: _this.props.profile.identity.mail
+	            mail: _this.props.profile.identity.mail,
+	            status: _this.props.profile.identity.status
 	        };
 	        return _this;
 	    }
 	
 	    _createClass(EditProfile, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            __webpack_require__(521);
+	        }
+	    }, {
 	        key: 'componentWillReceiveProps',
 	        value: function componentWillReceiveProps(nextProps) {
-	            //console.log("nextProps", nextProps);
+	            console.log("nextProps EditProfile", nextProps);
 	            var self = this;
 	            if (nextProps.profile) {
 	                if (nextProps.profile.identity.id !== this.props.profile.identity.firstName) {
@@ -64130,15 +64296,11 @@
 	                        //profile: nextProps.profile,
 	                        firstName: nextProps.profile.identity.firstName,
 	                        lastName: nextProps.profile.identity.lastName,
-	                        mail: nextProps.profile.identity.mail
+	                        mail: nextProps.profile.identity.mail,
+	                        status: nextProps.profile.identity.status
 	                    });
 	                }
 	            }
-	        }
-	    }, {
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            //require('./info.css');
 	        }
 	    }, {
 	        key: 'handleChangeFirstName',
@@ -64159,6 +64321,12 @@
 	            this.setState({ mail: event.target.value });
 	        }
 	    }, {
+	        key: 'handleChangeStatus',
+	        value: function handleChangeStatus(event) {
+	            //console.log("value", event.target.value);
+	            this.setState({ status: event.target.value });
+	        }
+	    }, {
 	        key: '_handleSaveForm',
 	        value: function _handleSaveForm() {
 	            console.log("_handleSaveForm test labsActions");
@@ -64167,99 +64335,75 @@
 	                id: this.props.profile.identity.id,
 	                firstName: this.state.firstName,
 	                lastName: this.state.lastName,
-	                mail: this.state.mail
+	                mail: this.state.mail,
+	                status: this.state.status
 	            };
-	            this.props.labsActions.modifyUserbyLab(profile, this.props.labs);
+	            this.props.labsActions.modifyUserbyLab(profile, this.props.labs.data);
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	            console.log("render EditProfile");
 	            var self = this;
 	            // console.log("state", self.state.firstName);
 	            //console.log("element", self.props.lab.labs[0]);
 	
-	
-	            /**
-	             <div className="form-group">
-	             <div className="col-sm-3">
-	             <label for="firstName">Firstname</label>
-	             </div>
-	               {!self.state.showEdit &&
-	             <div className="col-sm-9">
-	                 <label onClick={self.showEditFc.bind(self)}>{item.identity.firstName}</label>
-	             </div>
-	             }
-	             {self.state.showEdit &&
-	             <div>
-	                 <div className="col-sm-7">
-	                     <input className="form-control input-form" id="firstName" value={item.identity.firstName}/>
-	                 </div>
-	                 <div className="col-sm-1 col-xs-1">
-	                     <label onClick={self.showEditFc.bind(self)}><i className="fa fa-check" aria-hidden="true"></i></label>
-	                 </div>
-	                 <div className="col-sm-1">
-	                     <label onClick={self.showEditFc.bind(self)}><i className="fa fa-times" aria-hidden="true"></i></label>
-	                 </div>
-	             </div>
-	             }
-	             </div>
-	               <div className="form-group col-sm-12">
-	             <button onClick={self.onClose.bind(self)}> button </button>
-	             </div>
-	            **/
-	
-	            console.log("profile", self.props.profile);
+	            // console.log("profile", self.props.profile);
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'edit-profile' },
 	                _react2.default.createElement(
-	                    'form',
-	                    null,
+	                    'div',
+	                    { className: 'col-sm-6 margin' },
+	                    _react2.default.createElement(
+	                        'h2',
+	                        { className: 'text-center' },
+	                        ' Form '
+	                    ),
 	                    _react2.default.createElement(
 	                        'div',
-	                        { className: 'col-sm-6' },
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(_Input2.default, { classNames: { icon: "fa-fa" },
+	                            text: 'Firstname',
+	                            value: self.state.firstName,
+	                            onChange: self.handleChangeFirstName.bind(self) })
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(_Input2.default, { classNames: { icon: "fa-fa" },
+	                            text: 'Lastname',
+	                            value: self.state.lastName,
+	                            onChange: self.handleChangeLastName.bind(self) })
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(_Input2.default, { classNames: { icon: "fa-fa" },
+	                            text: 'Mail',
+	                            value: self.state.mail,
+	                            onChange: self.handleChangeMail.bind(self) })
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(_Input2.default, { classNames: { icon: "fa-fa" },
+	                            text: 'Status',
+	                            value: self.state.status,
+	                            onChange: self.handleChangeStatus.bind(self) })
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group btn-toolbar' },
 	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'form-group' },
-	                            _react2.default.createElement(_Input2.default, { classNames: { icon: "fa-fa" },
-	                                text: 'Firstname',
-	                                value: self.state.firstName,
-	                                onChange: self.handleChangeFirstName.bind(self) })
+	                            'button',
+	                            { type: 'button', className: 'btn btn-success', onClick: self._handleSaveForm.bind(self) },
+	                            ' Save '
 	                        ),
 	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'form-group' },
-	                            _react2.default.createElement(_Input2.default, { classNames: { icon: "fa-fa" },
-	                                text: 'Lastname',
-	                                value: self.state.lastName,
-	                                onChange: self.handleChangeLastName.bind(self) })
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'form-group' },
-	                            _react2.default.createElement(_Input2.default, { classNames: { icon: "fa-fa" },
-	                                text: 'Mail',
-	                                value: self.state.mail,
-	                                onChange: self.handleChangeMail.bind(self) })
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'form-group btn-toolbar' },
-	                            _react2.default.createElement(
-	                                'button',
-	                                { type: 'button', className: 'btn btn-success', onClick: self._handleSaveForm.bind(self) },
-	                                ' Save '
-	                            ),
-	                            _react2.default.createElement(
-	                                'button',
-	                                { type: 'reset', className: 'btn btn-danger' },
-	                                ' Reset '
-	                            )
-	                        ),
-	                        _react2.default.createElement(
-	                            'p',
-	                            null,
-	                            ' coucou '
+	                            'button',
+	                            { type: 'reset', className: 'btn btn-danger' },
+	                            ' Reset '
 	                        )
 	                    )
 	                )
@@ -64336,11 +64480,6 @@
 	    }
 	
 	    _createClass(Input, [{
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            //require('./info.css');
-	        }
-	    }, {
 	        key: 'componentWillReceiveProps',
 	        value: function componentWillReceiveProps(nextProps) {
 	            if (nextProps.value !== this.state.value) {
@@ -64356,6 +64495,7 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	            console.log("render Input");
 	            var self = this;
 	            //console.log("render input", self.state.value);
 	            //console.log("element", self.props.lab.labs[0]);
@@ -64375,7 +64515,7 @@
 	                        self.props.text,
 	                        ' '
 	                    ),
-	                    _react2.default.createElement('input', { className: 'form-control', id: 'firstName', value: self.state.value, onChange: onChange })
+	                    _react2.default.createElement('input', { className: 'form-control', value: self.state.value, onChange: onChange })
 	                )
 	            );
 	        }
@@ -64386,6 +64526,7 @@
 	
 	Input.propTypes = {
 	    classNames: _react.PropTypes.object,
+	    text: _react.PropTypes.string,
 	    value: _react.PropTypes.string
 	};
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Input);
@@ -64425,7 +64566,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".labs-infos .table-employees{\r\n    height: 500px;\r\n}\r\n.labs-infos .input-form{\r\n    margin-top: -5px;\r\n}\r\n", ""]);
+	exports.push([module.id, ".edit-profile .margin{\r\n    margin-left: -30px;\r\n}", ""]);
 	
 	// exports
 
@@ -64437,16 +64578,148 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(77);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRedux = __webpack_require__(314);
+	
+	var _reactRouter = __webpack_require__(250);
+	
+	var _redux = __webpack_require__(321);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	/** Reducer Action**/
+	//import * as labsActions from '../../redux/actions/labsActions';
+	
+	/** State **/
+	var mapStateToProps = function mapStateToProps(state) {
+	    return {
+	        //display: state.reduceLabs.display
+	    };
+	};
+	/** Action **/
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	    return {
+	        //labsActions: bindActionCreators(labsActions, dispatch)
+	    };
+	};
+	
+	var StatByProfile = function (_Component) {
+	    _inherits(StatByProfile, _Component);
+	
+	    function StatByProfile(props, context) {
+	        _classCallCheck(this, StatByProfile);
+	
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(StatByProfile).call(this, props, context));
+	    }
+	
+	    _createClass(StatByProfile, [{
+	        key: 'render',
+	        value: function render() {
+	            console.log("render Input");
+	            var self = this;
+	            //console.log("render input", self.state.value);
+	            //console.log("element", self.props.lab.labs[0]);
+	            //let {onChange} = this.props;
+	            //onChange = onChange || this._defaultOnChange.bind(this);
+	            var profile = self.props.profile;
+	
+	            console.log("profile", self.props.profile);
+	
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'stat-by-profile' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-sm-6' },
+	                    _react2.default.createElement(
+	                        'h2',
+	                        { className: 'text-center' },
+	                        ' Chart '
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return StatByProfile;
+	}(_react.Component);
+	
+	StatByProfile.propTypes = {
+	    profile: _react.PropTypes.object
+	};
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(StatByProfile);
+
+/***/ },
+/* 524 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(525);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(347)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(true) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept(525, function() {
+				var newContent = __webpack_require__(525);
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 525 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(346)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".labs-infos .table-employees{\r\n    height: 200px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n.labs-infos .input-form{\r\n    margin-top: -5px;\r\n}\r\n", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 526 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	
 	var _redux = __webpack_require__(321);
 	
-	var _textTest = __webpack_require__(524);
+	var _textTest = __webpack_require__(527);
 	
 	var _textTest2 = _interopRequireDefault(_textTest);
 	
-	var _reduceLabs = __webpack_require__(525);
+	var _reduceLabs = __webpack_require__(528);
 	
 	var _reduceLabs2 = _interopRequireDefault(_reduceLabs);
 	
@@ -64470,7 +64743,7 @@
 	exports.default = store;
 
 /***/ },
-/* 524 */
+/* 527 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64516,7 +64789,7 @@
 	}
 
 /***/ },
-/* 525 */
+/* 528 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64538,6 +64811,7 @@
 	var initialState = {
 	
 	    labs: {
+	        date: 1471781338,
 	        data: [{ id: '1',
 	            labs: [{
 	                country: 'France',
@@ -64568,8 +64842,14 @@
 	        id: 0,
 	        content: false
 	    },
-	    test: {
-	        val: null
+	    editUser: {
+	        display: false
+	    },
+	    showEditProfile: {
+	        display: false
+	    },
+	    showStatsByProfile: {
+	        display: false
 	    }
 	};
 	
@@ -64588,10 +64868,27 @@
 	                }
 	            });
 	
-	        case types.TEST:
+	        case types.EDIT_DATA_LABS:
 	            return _extends({}, state, {
-	                test: {
-	                    val: action.result
+	                labs: {
+	                    data: action.result
+	                },
+	                showEditProfile: {
+	                    display: false
+	                }
+	            });
+	
+	        case types.SHOW_EDIT_PROFILE:
+	            return _extends({}, state, {
+	                showEditProfile: {
+	                    display: action.result
+	                }
+	            });
+	
+	        case types.SHOW_STATS_BY_PROFILE:
+	            return _extends({}, state, {
+	                showStatsByProfile: {
+	                    display: action.result
 	                }
 	            });
 	
@@ -64601,13 +64898,13 @@
 	}
 
 /***/ },
-/* 526 */
+/* 529 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(527);
+	var content = __webpack_require__(530);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(347)(content, {});
@@ -64616,8 +64913,8 @@
 	if(true) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept(527, function() {
-				var newContent = __webpack_require__(527);
+			module.hot.accept(530, function() {
+				var newContent = __webpack_require__(530);
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -64627,7 +64924,7 @@
 	}
 
 /***/ },
-/* 527 */
+/* 530 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(346)();

@@ -10,7 +10,6 @@ import * as labsActions from '../../redux/actions/labsActions';
 
 /** State **/
 const mapStateToProps = (state) => ({
-    test: state.reduceLabs.test,
     labs: state.reduceLabs.labs
 });
 /** Action **/
@@ -24,6 +23,8 @@ class EditProfile extends Component {
         profile: PropTypes.object
     };
 
+
+
     constructor(props, context) {
         super(props, context);
         //console.log("props", this.props, this.props.profile.identity.firstName);
@@ -31,12 +32,17 @@ class EditProfile extends Component {
             //profile: this.props.profile,
             firstName: this.props.profile.identity.firstName,
             lastName: this.props.profile.identity.lastName,
-            mail: this.props.profile.identity.mail
+            mail: this.props.profile.identity.mail,
+            status: this.props.profile.identity.status,
         }
     }
 
+    componentDidMount () {
+        require('./editProfile.css');
+    }
+
     componentWillReceiveProps(nextProps) {
-        //console.log("nextProps", nextProps);
+        console.log("nextProps EditProfile", nextProps);
         var self = this;
         if (  nextProps.profile ) {
             if ( nextProps.profile.identity.id !== this.props.profile.identity.firstName) {
@@ -44,15 +50,13 @@ class EditProfile extends Component {
                     //profile: nextProps.profile,
                     firstName: nextProps.profile.identity.firstName,
                     lastName: nextProps.profile.identity.lastName,
-                    mail: nextProps.profile.identity.mail
+                    mail: nextProps.profile.identity.mail,
+                    status: nextProps.profile.identity.status
                 })
             }
         }
     }
 
-    componentDidMount () {
-        //require('./info.css');
-    }
 
     handleChangeFirstName(event){
         //console.log("value", event.target.value);
@@ -69,6 +73,11 @@ class EditProfile extends Component {
         this.setState({mail: event.target.value});
     }
 
+    handleChangeStatus(event){
+        //console.log("value", event.target.value);
+        this.setState({status: event.target.value});
+    }
+
     _handleSaveForm(){
         console.log("_handleSaveForm test labsActions");
         console.log("_handleSaveForm test labsActions ",  this.props.labsActions);
@@ -76,53 +85,25 @@ class EditProfile extends Component {
             id: this.props.profile.identity.id,
             firstName: this.state.firstName,
             lastName: this.state.lastName,
-            mail: this.state.mail
+            mail: this.state.mail,
+            status: this.state.status
         };
-        this.props.labsActions.modifyUserbyLab(profile, this.props.labs);
+        this.props.labsActions.modifyUserbyLab(profile, this.props.labs.data);
     }
 
     render() {
+        console.log("render EditProfile");
         var self = this;
        // console.log("state", self.state.firstName);
         //console.log("element", self.props.lab.labs[0]);
 
-
-        /**
-         <div className="form-group">
-         <div className="col-sm-3">
-         <label for="firstName">Firstname</label>
-         </div>
-
-         {!self.state.showEdit &&
-         <div className="col-sm-9">
-             <label onClick={self.showEditFc.bind(self)}>{item.identity.firstName}</label>
-         </div>
-         }
-         {self.state.showEdit &&
-         <div>
-             <div className="col-sm-7">
-                 <input className="form-control input-form" id="firstName" value={item.identity.firstName}/>
-             </div>
-             <div className="col-sm-1 col-xs-1">
-                 <label onClick={self.showEditFc.bind(self)}><i className="fa fa-check" aria-hidden="true"></i></label>
-             </div>
-             <div className="col-sm-1">
-                 <label onClick={self.showEditFc.bind(self)}><i className="fa fa-times" aria-hidden="true"></i></label>
-             </div>
-         </div>
-         }
-         </div>
-
-         <div className="form-group col-sm-12">
-         <button onClick={self.onClose.bind(self)}> button </button>
-         </div>
-        **/
-
-        console.log("profile", self.props.profile);
-        return(
+       // console.log("profile", self.props.profile);
+        return (
             <div className="edit-profile">
-                <form>
-                    <div className="col-sm-6">
+
+                    <div className="col-sm-6 margin">
+
+                        <h2 className="text-center"> Form </h2>
 
                         <div className="form-group">
                             <Input classNames={ {icon: "fa-fa"}}
@@ -145,24 +126,20 @@ class EditProfile extends Component {
                                    onChange={self.handleChangeMail.bind(self) }/>
                         </div>
 
+                        <div className="form-group">
+                            <Input classNames={ {icon: "fa-fa"}}
+                                   text="Status"
+                                   value={self.state.status}
+                                   onChange={self.handleChangeStatus.bind(self) }/>
+                        </div>
+
                         <div className="form-group btn-toolbar">
                             <button type="button" className="btn btn-success" onClick={self._handleSaveForm.bind(self)}> Save </button>
                             <button type="reset" className="btn btn-danger"> Reset </button>
                         </div>
 
-
-                        {/*
-                         <p>{item.identity.lastName}</p>
-                         <p>{item.identity.mail}</p>
-                         <p>{item.identity.status}</p>
-                         <p>{item.country}</p>
-                         <p>{item.city}</p>
-                         */
-                        }
-                        <p> coucou </p>
-
                     </div>
-                </form>
+
             </div>
         );
     }
