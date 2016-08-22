@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "848aeda210373c5d2019"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f2b161e9cc879a3aad61"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -63997,14 +63997,8 @@
 	        value: function editProfile(profile) {
 	            console.log("user", profile);
 	            this.props.labsActions.showEditProfile(true);
-	            this.setState({ profile: profile });
-	        }
-	    }, {
-	        key: 'statByProfile',
-	        value: function statByProfile() {
-	            console.log("user");
 	            this.props.labsActions.showEditStat(true);
-	            this.props.labsActions.showEditProfile(false);
+	            this.setState({ profile: profile });
 	        }
 	    }, {
 	        key: 'onClose',
@@ -64365,6 +64359,11 @@
 	                    'div',
 	                    { className: 'col-sm-6 margin' },
 	                    _react2.default.createElement(
+	                        'h2',
+	                        { className: 'text-center' },
+	                        ' Edit Profile '
+	                    ),
+	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'form-group' },
 	                        _react2.default.createElement(_Input2.default, { classNames: { icon: "fa-fa" },
@@ -64570,7 +64569,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".edit-profile .margin{\r\n    margin-left: -30px;\r\n}", ""]);
+	exports.push([module.id, ".edit-profile .margin{\r\n    margin-left: -30px;\r\n    margin-top: 30px;\r\n}", ""]);
 	
 	// exports
 
@@ -64596,6 +64595,10 @@
 	var _reactRouter = __webpack_require__(250);
 	
 	var _redux = __webpack_require__(321);
+	
+	var _chart = __webpack_require__(357);
+	
+	var _chart2 = _interopRequireDefault(_chart);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -64633,15 +64636,48 @@
 	    _createClass(StatByProfile, [{
 	        key: 'render',
 	        value: function render() {
-	            console.log("render Input");
+	            console.log("render StatByProfile");
 	            var self = this;
-	            //console.log("render input", self.state.value);
-	            //console.log("element", self.props.lab.labs[0]);
+	
 	            //let {onChange} = this.props;
 	            //onChange = onChange || this._defaultOnChange.bind(this);
 	            var profile = self.props.profile;
 	
 	            console.log("profile", self.props.profile);
+	
+	            var data = {
+	                0: [12, 19, 3, 5, 2, 3]
+	            };
+	
+	            $(function () {
+	                $('#labs-chart1').empty();
+	                var canvas_lineChart = $('<canvas/>', { id: 'labs-lineChart', height: 400, width: 400 });
+	                //canvas_lineChart.css('border', 'solid 0px red');
+	                $('#labs-chart1').append(canvas_lineChart);
+	
+	                var ctx_lineChart = document.getElementById("labs-lineChart");
+	                var lineChart = new _chart2.default(ctx_lineChart, {
+	                    type: 'line',
+	                    data: {
+	                        labels: ["January", "February", "Mars", "April", "May", "June"],
+	                        datasets: [{
+	                            label: '# of Sales',
+	                            data: data[0],
+	                            backgroundColor: 'rgba(255,99,132,1)',
+	                            borderColor: 'rgba(255, 206, 86, 1)',
+	                            borderWidth: 1,
+	                            pointBorderWidth: 10,
+	                            pointHoverRadius: 10,
+	                            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+	                            pointHoverBorderColor: "rgba(220,220,220,1)",
+	                            pointHoverBorderWidth: 2,
+	                            pointRadius: 1,
+	                            fill: true,
+	                            spanGaps: true
+	                        }]
+	                    }
+	                });
+	            });
 	
 	            return _react2.default.createElement(
 	                'div',
@@ -64653,7 +64689,8 @@
 	                        'h2',
 	                        { className: 'text-center' },
 	                        ' Chart '
-	                    )
+	                    ),
+	                    _react2.default.createElement('div', { id: 'labs-chart1', className: 'text-center' })
 	                )
 	            );
 	        }
@@ -64826,7 +64863,7 @@
 	                        _reactGmaps.Gmaps,
 	                        {
 	                            width: 'col-sm-10',
-	                            height: '300px',
+	                            height: '200px',
 	                            lat: self.state.lat,
 	                            lng: self.state.lng,
 	                            zoom: 12,

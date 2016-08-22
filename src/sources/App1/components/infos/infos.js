@@ -55,13 +55,8 @@ class Infos extends Component {
     editProfile(profile) {
         console.log("user", profile);
         this.props.labsActions.showEditProfile(true);
-        this.setState({profile: profile});
-    }
-
-    statByProfile() {
-        console.log("user");
         this.props.labsActions.showEditStat(true);
-        this.props.labsActions.showEditProfile(false);
+        this.setState({profile: profile});
     }
 
     onClose() {

@@ -100,8 +100,9 @@ class EditProfile extends Component {
        // console.log("profile", self.props.profile);
         return (
             <div className="edit-profile">
-
                     <div className="col-sm-6 margin">
+
+                        <h2 className="text-center"> Edit Profile </h2>
 
                         <div className="form-group">
                             <Input classNames={ {icon: "fa-fa"}}

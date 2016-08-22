@@ -118,7 +118,7 @@ class MapLabs extends Component {
                 <div className="col-sm-12">
                     <Gmaps
                         width={'col-sm-10'}
-                        height={'300px'}
+                        height={'200px'}
                         lat={self.state.lat}
                         lng={self.state.lng}
                         zoom={12}
