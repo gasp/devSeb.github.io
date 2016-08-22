@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "6f32cbbfd407f2035e6c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "848aeda210373c5d2019"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -8270,7 +8270,7 @@
 	
 	var _reactRedux = __webpack_require__(314);
 	
-	var _Store = __webpack_require__(526);
+	var _Store = __webpack_require__(544);
 	
 	var _Store2 = _interopRequireDefault(_Store);
 	
@@ -8282,7 +8282,7 @@
 	//window.jQuery = $;
 	
 	/** Css **/
-	__webpack_require__(529);
+	__webpack_require__(547);
 	/** bootstrap loader **/
 	//require('bootstrap-loader');
 	
@@ -63926,6 +63926,10 @@
 	
 	var _StatByProfile2 = _interopRequireDefault(_StatByProfile);
 	
+	var _MapLabs = __webpack_require__(524);
+	
+	var _MapLabs2 = _interopRequireDefault(_MapLabs);
+	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -63972,7 +63976,7 @@
 	    _createClass(Infos, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            __webpack_require__(524);
+	            __webpack_require__(542);
 	        }
 	    }, {
 	        key: 'componentWillReceiveProps',
@@ -64062,6 +64066,8 @@
 	                        }
 	                    }
 	                }
+	
+	                //console.log("lab", lab);
 	            } catch (err) {
 	                _didIteratorError = true;
 	                _iteratorError = err;
@@ -64077,33 +64083,36 @@
 	                }
 	            }
 	
-	            console.log("lab", lab);
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'labs-infos' },
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'container' },
-	                    'hey',
 	                    _react2.default.createElement(
-	                        'a',
-	                        { href: '#', onClick: self.displayOff.bind(self) },
-	                        ' off '
+	                        'h2',
+	                        null,
+	                        _react2.default.createElement(
+	                            'a',
+	                            { href: '#', onClick: self.displayOff.bind(self) },
+	                            _react2.default.createElement('i', { className: 'fa fa-hand-o-left', 'aria-hidden': 'true' })
+	                        )
 	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        _react2.default.createElement(_MapLabs2.default, { point: self.props.labs.data[self.props.id].labs })
+	                    ),
+	                    _react2.default.createElement('br', null),
+	                    _react2.default.createElement('br', null),
 	                    lab && _react2.default.createElement(
 	                        'div',
-	                        { className: '' },
+	                        null,
 	                        _react2.default.createElement(
-	                            'h2',
+	                            'h3',
 	                            null,
-	                            'Labs'
+	                            ' Employees '
 	                        ),
-	                        _react2.default.createElement(
-	                            'p',
-	                            null,
-	                            'The .table-hover class enables a hover state on table rows:'
-	                        ),
-	                        _react2.default.createElement('br', null),
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'table-employees' },
@@ -64149,31 +64158,31 @@
 	                                    lab && lab.map(function (item, index) {
 	                                        return _react2.default.createElement(
 	                                            'tr',
-	                                            { key: index },
+	                                            { key: index, onClick: self.editProfile.bind(self, item) },
 	                                            _react2.default.createElement(
 	                                                'td',
-	                                                { onClick: self.statByProfile.bind(self) },
+	                                                null,
 	                                                item.identity.firstName
 	                                            ),
 	                                            _react2.default.createElement(
 	                                                'td',
-	                                                { onClick: self.statByProfile.bind(self) },
+	                                                null,
 	                                                item.identity.lastName
 	                                            ),
 	                                            _react2.default.createElement(
 	                                                'td',
-	                                                { onClick: self.statByProfile.bind(self) },
+	                                                null,
 	                                                item.identity.mail
 	                                            ),
 	                                            _react2.default.createElement(
 	                                                'td',
-	                                                { onClick: self.statByProfile.bind(self) },
+	                                                null,
 	                                                item.identity.status
 	                                            ),
 	                                            _react2.default.createElement(
 	                                                'td',
 	                                                null,
-	                                                _react2.default.createElement('i', { className: 'fa fa-pencil-square-o', 'aria-hidden': 'true', onClick: self.editProfile.bind(self, item) }),
+	                                                _react2.default.createElement('i', { className: 'fa fa-pencil-square-o', 'aria-hidden': 'true' }),
 	                                                ' '
 	                                            )
 	                                        );
@@ -64355,11 +64364,6 @@
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'col-sm-6 margin' },
-	                    _react2.default.createElement(
-	                        'h2',
-	                        { className: 'text-center' },
-	                        ' Form '
-	                    ),
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'form-group' },
@@ -64667,10 +64671,1024 @@
 /* 524 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(77);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRedux = __webpack_require__(314);
+	
+	var _reactRouter = __webpack_require__(250);
+	
+	var _redux = __webpack_require__(321);
+	
+	var _reactGmaps = __webpack_require__(525);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	//
+	//import {Gmaps} from '../../../../../node_modules/react-gmaps/dist';
+	//import MapEvents from '../../../../../node_modules/react-gmaps/dist//events/map';
+	
+	
+	/** Reducer Action**/
+	//import * as labsActions from '../../redux/actions/labsActions';
+	
+	/** State **/
+	var mapStateToProps = function mapStateToProps(state) {
+	    return {
+	        //display: state.reduceLabs.display
+	    };
+	};
+	/** Action **/
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	    return {
+	        //labsActions: bindActionCreators(labsActions, dispatch)
+	    };
+	};
+	
+	var MapLabs = function (_Component) {
+	    _inherits(MapLabs, _Component);
+	
+	    function MapLabs(props, context) {
+	        _classCallCheck(this, MapLabs);
+	
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MapLabs).call(this, props, context));
+	
+	        _this.state = {
+	            lat: null,
+	            lng: null
+	        };
+	        return _this;
+	    }
+	
+	    _createClass(MapLabs, [{
+	        key: 'onMapCreated',
+	        value: function onMapCreated(map) {
+	            map.setOptions({
+	                disableDefaultUI: true
+	            });
+	        }
+	    }, {
+	        key: 'onDragEnd',
+	        value: function onDragEnd(e) {
+	            console.log('onDragEnd', e);
+	        }
+	    }, {
+	        key: 'onCloseClick',
+	        value: function onCloseClick() {
+	            console.log('onCloseClick');
+	        }
+	    }, {
+	        key: 'onClick',
+	        value: function onClick(e) {
+	            console.log('onClick', e);
+	        }
+	    }, {
+	        key: 'loadDistantFile',
+	        value: function loadDistantFile(url) {
+	            return new Promise(function (resolve, reject) {
+	                var xhr = new XMLHttpRequest();
+	
+	                xhr.onload = function (event) {
+	                    resolve(xhr.responseText); // Si la requête réussit, on résout la promesse en indiquant le contenu du fichier
+	                };
+	
+	                xhr.onerror = function (err) {
+	                    reject(err); // Si la requête échoue, on rejette la promesse en envoyant les infos de l'erreur
+	                };
+	
+	                xhr.open('GET', url, true);
+	                xhr.send(null);
+	                console.log("end xhr");
+	            });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            console.log("render Map");
+	            var self = this;
+	            //console.log("point", self.props.point);
+	            //console.log("state", self.state);
+	
+	            /**
+	             * <InfoWindow
+	             lat={coords.lat}
+	             lng={coords.lng}
+	             content={null}
+	             onCloseClick={this.onCloseClick}
+	             />
+	             * <Circle
+	             lat={coords.lat}
+	             lng={coords.lng}
+	             radius={500}
+	             onClick={this.onClick} />
+	             */
+	            var country = self.props.point[0].country;
+	            var city = self.props.point[0].city;
+	            var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + city + "," + country + "&key=AIzaSyDveCKvIdrLJBgpYF1_rTduxtcxXg8CYLs";
+	
+	            if (this.state.lat === null && this.state.lng === null) {
+	                this.loadDistantFile(url).then(function (content) {
+	                    //console.info('Fichier chargé !');
+	                    //console.log("res = ", content);
+	                    var obj = JSON.parse(content);
+	                    //console.log("obj =", obj);
+	                    //self.setState({lat: 51.5258541, lng: -0.08040660000006028});
+	
+	                    self.setState({ lat: obj.results[0].geometry.location.lat,
+	                        lng: obj.results[0].geometry.location.lng });
+	                }).catch(function (err) {
+	                    console.error('Erreur !');
+	                    console.log(err);
+	                });
+	            }
+	
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'labs-map' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-sm-12' },
+	                    _react2.default.createElement(
+	                        _reactGmaps.Gmaps,
+	                        {
+	                            width: 'col-sm-10',
+	                            height: '300px',
+	                            lat: self.state.lat,
+	                            lng: self.state.lng,
+	                            zoom: 12,
+	                            loadingMessage: 'Be happy',
+	                            params: { v: '3.exp', key: 'AIzaSyDveCKvIdrLJBgpYF1_rTduxtcxXg8CYLs' },
+	                            onMapCreated: this.onMapCreated },
+	                        _react2.default.createElement(_reactGmaps.Marker, {
+	                            lat: self.state.lat,
+	                            lng: self.state.lng,
+	                            draggable: true,
+	                            onDragEnd: this.onDragEnd })
+	                    ),
+	                    _react2.default.createElement('br', null)
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return MapLabs;
+	}(_react.Component);
+	
+	MapLabs.propTypes = {
+	    point: _react.PropTypes.array
+	};
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(MapLabs);
+
+/***/ },
+/* 525 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _componentsGmaps = __webpack_require__(526);
+	
+	var _componentsGmaps2 = _interopRequireDefault(_componentsGmaps);
+	
+	var _componentsMarker = __webpack_require__(535);
+	
+	var _componentsMarker2 = _interopRequireDefault(_componentsMarker);
+	
+	var _componentsInfoWindow = __webpack_require__(538);
+	
+	var _componentsInfoWindow2 = _interopRequireDefault(_componentsInfoWindow);
+	
+	var _componentsCircle = __webpack_require__(540);
+	
+	var _componentsCircle2 = _interopRequireDefault(_componentsCircle);
+	
+	exports.Gmaps = _componentsGmaps2['default'];
+	exports.Marker = _componentsMarker2['default'];
+	exports.InfoWindow = _componentsInfoWindow2['default'];
+	exports.Circle = _componentsCircle2['default'];
+
+/***/ },
+/* 526 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _react = __webpack_require__(77);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(110);
+	
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+	
+	var _objectAssign = __webpack_require__(527);
+	
+	var _objectAssign2 = _interopRequireDefault(_objectAssign);
+	
+	var _eventsMap = __webpack_require__(528);
+	
+	var _eventsMap2 = _interopRequireDefault(_eventsMap);
+	
+	var _mixinsListener = __webpack_require__(529);
+	
+	var _mixinsListener2 = _interopRequireDefault(_mixinsListener);
+	
+	var _utilsGoogleMaps = __webpack_require__(530);
+	
+	var _utilsGoogleMaps2 = _interopRequireDefault(_utilsGoogleMaps);
+	
+	var _utilsCompareProps = __webpack_require__(534);
+	
+	var _utilsCompareProps2 = _interopRequireDefault(_utilsCompareProps);
+	
+	var Gmaps = _react2['default'].createClass({
+	  displayName: 'Gmaps',
+	
+	  mixins: [_mixinsListener2['default']],
+	
+	  map: null,
+	
+	  getInitialState: function getInitialState() {
+	    return {
+	      isMapCreated: false
+	    };
+	  },
+	
+	  componentDidMount: function componentDidMount() {
+	    this.setState({
+	      callbackIndex: _utilsGoogleMaps2['default'].load(this.props.params, this.mapsCallback)
+	    });
+	  },
+	
+	  componentWillUnmount: function componentWillUnmount() {
+	    _utilsGoogleMaps2['default'].removeCallback(this.state.callbackIndex);
+	    this.removeListeners();
+	  },
+	
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	    if (this.map && !(0, _utilsCompareProps2['default'])(this.props, nextProps)) {
+	      this.map.setOptions(_extends({}, nextProps, {
+	        center: new google.maps.LatLng(nextProps.lat, nextProps.lng)
+	      }));
+	    }
+	  },
+	
+	  getMap: function getMap() {
+	    return this.map;
+	  },
+	
+	  mapsCallback: function mapsCallback() {
+	    this.createMap();
+	    this.addListeners(this.map, _eventsMap2['default']);
+	  },
+	
+	  createMap: function createMap() {
+	    var node = _reactDom2['default'].findDOMNode(this);
+	    this.map = new google.maps.Map(node, _extends({}, this.props, {
+	      center: new google.maps.LatLng(this.props.lat, this.props.lng)
+	    }));
+	    this.setState({
+	      isMapCreated: true
+	    });
+	    if (this.props.onMapCreated) {
+	      this.props.onMapCreated(this.map);
+	    }
+	  },
+	
+	  getChildren: function getChildren() {
+	    var _this = this;
+	
+	    return _react2['default'].Children.map(this.props.children, function (child) {
+	      if (!_react2['default'].isValidElement(child)) {
+	        return child;
+	      }
+	      return _react2['default'].cloneElement(child, {
+	        ref: child.ref,
+	        map: _this.map
+	      });
+	    });
+	  },
+	
+	  render: function render() {
+	    var style = (0, _objectAssign2['default'])({
+	      width: this.props.width,
+	      height: this.props.height
+	    }, this.props.style);
+	    return _react2['default'].createElement(
+	      'div',
+	      { style: style, className: this.props.className },
+	      this.props.loadingMessage || 'Loading...',
+	      this.state.isMapCreated ? this.getChildren() : null
+	    );
+	  }
+	
+	});
+	
+	exports['default'] = Gmaps;
+	module.exports = exports['default'];
+
+/***/ },
+/* 527 */
+/***/ function(module, exports) {
+
+	'use strict';
+	/* eslint-disable no-unused-vars */
+	var hasOwnProperty = Object.prototype.hasOwnProperty;
+	var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+	
+	function toObject(val) {
+		if (val === null || val === undefined) {
+			throw new TypeError('Object.assign cannot be called with null or undefined');
+		}
+	
+		return Object(val);
+	}
+	
+	function shouldUseNative() {
+		try {
+			if (!Object.assign) {
+				return false;
+			}
+	
+			// Detect buggy property enumeration order in older V8 versions.
+	
+			// https://bugs.chromium.org/p/v8/issues/detail?id=4118
+			var test1 = new String('abc');  // eslint-disable-line
+			test1[5] = 'de';
+			if (Object.getOwnPropertyNames(test1)[0] === '5') {
+				return false;
+			}
+	
+			// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+			var test2 = {};
+			for (var i = 0; i < 10; i++) {
+				test2['_' + String.fromCharCode(i)] = i;
+			}
+			var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+				return test2[n];
+			});
+			if (order2.join('') !== '0123456789') {
+				return false;
+			}
+	
+			// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+			var test3 = {};
+			'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+				test3[letter] = letter;
+			});
+			if (Object.keys(Object.assign({}, test3)).join('') !==
+					'abcdefghijklmnopqrst') {
+				return false;
+			}
+	
+			return true;
+		} catch (e) {
+			// We don't expect any of the above to throw, but better to be safe.
+			return false;
+		}
+	}
+	
+	module.exports = shouldUseNative() ? Object.assign : function (target, source) {
+		var from;
+		var to = toObject(target);
+		var symbols;
+	
+		for (var s = 1; s < arguments.length; s++) {
+			from = Object(arguments[s]);
+	
+			for (var key in from) {
+				if (hasOwnProperty.call(from, key)) {
+					to[key] = from[key];
+				}
+			}
+	
+			if (Object.getOwnPropertySymbols) {
+				symbols = Object.getOwnPropertySymbols(from);
+				for (var i = 0; i < symbols.length; i++) {
+					if (propIsEnumerable.call(from, symbols[i])) {
+						to[symbols[i]] = from[symbols[i]];
+					}
+				}
+			}
+		}
+	
+		return to;
+	};
+
+
+/***/ },
+/* 528 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	exports['default'] = {
+	  onBoundsChanged: 'bounds_changed',
+	  onCenterChanged: 'center_changed',
+	  onClick: 'click',
+	  onDblClick: 'dblclick',
+	  onDrag: 'drag',
+	  onDragEnd: 'dragend',
+	  onDragStart: 'dragstart',
+	  onHeadingChanged: 'heading_changed',
+	  onIdle: 'idle',
+	  onMapTypeIdChanged: 'maptypeid_changed',
+	  onMouseMove: 'mousemove',
+	  onMouseOut: 'mouseout',
+	  onMouseOver: 'mouseover',
+	  onProjectionChanged: 'projection_changed',
+	  onResize: 'resize',
+	  onRightClick: 'rightclick',
+	  onTilesLoaded: 'tilesloaded',
+	  onTiltChanged: 'tilt_changed',
+	  onZoomChanged: 'zoom_changed'
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 529 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var Listener = {
+	
+	  addListeners: function addListeners(entity, events) {
+	    for (var prop in this.props) {
+	      if (this.props.hasOwnProperty(prop) && events[prop]) {
+	        var addListener = google.maps.event.addListener;
+	        var listener = addListener(entity, events[prop], this.props[prop]);
+	        if (!this.listeners) {
+	          this.listeners = [];
+	        }
+	        this.listeners.push(listener);
+	      }
+	    }
+	  },
+	
+	  removeListeners: function removeListeners() {
+	    if (window.google && this.listeners) {
+	      this.listeners.forEach(function (listener) {
+	        google.maps.event.removeListener(listener);
+	      });
+	    }
+	  }
+	
+	};
+	
+	exports["default"] = Listener;
+	module.exports = exports["default"];
+
+/***/ },
+/* 530 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _querystring = __webpack_require__(531);
+	
+	var _querystring2 = _interopRequireDefault(_querystring);
+	
+	exports['default'] = {
+	
+	  callbacks: [],
+	
+	  appended: false,
+	
+	  load: function load(params, callback) {
+	    var index = this.callbacks.push(callback);
+	    if (window.google) {
+	      setTimeout(this.fireCallbacks.bind(this));
+	    } else {
+	      if (!this.appended) {
+	        window.mapsCallback = this.mapsCallback.bind(this);
+	        this.appendScript(params);
+	      }
+	    }
+	    return index;
+	  },
+	
+	  getSrc: function getSrc(params) {
+	    var src = 'https://maps.googleapis.com/maps/api/js';
+	    src += '?callback=mapsCallback&';
+	    src += _querystring2['default'].stringify(params);
+	    return src;
+	  },
+	
+	  appendScript: function appendScript(params) {
+	    var src = this.getSrc(params);
+	    var script = document.createElement('script');
+	    script.setAttribute('src', src);
+	    document.head.appendChild(script);
+	    this.appended = true;
+	  },
+	
+	  mapsCallback: function mapsCallback() {
+	    window.mapsCallback = undefined;
+	    this.fireCallbacks();
+	  },
+	
+	  fireCallbacks: function fireCallbacks() {
+	    this.callbacks.forEach(function (callback) {
+	      return callback();
+	    });
+	    this.callbacks = [];
+	  },
+	
+	  removeCallback: function removeCallback(index) {
+	    this.callbacks.splice(index - 1, 1);
+	  }
+	
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 531 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.decode = exports.parse = __webpack_require__(532);
+	exports.encode = exports.stringify = __webpack_require__(533);
+
+
+/***/ },
+/* 532 */
+/***/ function(module, exports) {
+
+	// Copyright Joyent, Inc. and other Node contributors.
+	//
+	// Permission is hereby granted, free of charge, to any person obtaining a
+	// copy of this software and associated documentation files (the
+	// "Software"), to deal in the Software without restriction, including
+	// without limitation the rights to use, copy, modify, merge, publish,
+	// distribute, sublicense, and/or sell copies of the Software, and to permit
+	// persons to whom the Software is furnished to do so, subject to the
+	// following conditions:
+	//
+	// The above copyright notice and this permission notice shall be included
+	// in all copies or substantial portions of the Software.
+	//
+	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+	// USE OR OTHER DEALINGS IN THE SOFTWARE.
+	
+	'use strict';
+	
+	// If obj.hasOwnProperty has been overridden, then calling
+	// obj.hasOwnProperty(prop) will break.
+	// See: https://github.com/joyent/node/issues/1707
+	function hasOwnProperty(obj, prop) {
+	  return Object.prototype.hasOwnProperty.call(obj, prop);
+	}
+	
+	module.exports = function(qs, sep, eq, options) {
+	  sep = sep || '&';
+	  eq = eq || '=';
+	  var obj = {};
+	
+	  if (typeof qs !== 'string' || qs.length === 0) {
+	    return obj;
+	  }
+	
+	  var regexp = /\+/g;
+	  qs = qs.split(sep);
+	
+	  var maxKeys = 1000;
+	  if (options && typeof options.maxKeys === 'number') {
+	    maxKeys = options.maxKeys;
+	  }
+	
+	  var len = qs.length;
+	  // maxKeys <= 0 means that we should not limit keys count
+	  if (maxKeys > 0 && len > maxKeys) {
+	    len = maxKeys;
+	  }
+	
+	  for (var i = 0; i < len; ++i) {
+	    var x = qs[i].replace(regexp, '%20'),
+	        idx = x.indexOf(eq),
+	        kstr, vstr, k, v;
+	
+	    if (idx >= 0) {
+	      kstr = x.substr(0, idx);
+	      vstr = x.substr(idx + 1);
+	    } else {
+	      kstr = x;
+	      vstr = '';
+	    }
+	
+	    k = decodeURIComponent(kstr);
+	    v = decodeURIComponent(vstr);
+	
+	    if (!hasOwnProperty(obj, k)) {
+	      obj[k] = v;
+	    } else if (isArray(obj[k])) {
+	      obj[k].push(v);
+	    } else {
+	      obj[k] = [obj[k], v];
+	    }
+	  }
+	
+	  return obj;
+	};
+	
+	var isArray = Array.isArray || function (xs) {
+	  return Object.prototype.toString.call(xs) === '[object Array]';
+	};
+
+
+/***/ },
+/* 533 */
+/***/ function(module, exports) {
+
+	// Copyright Joyent, Inc. and other Node contributors.
+	//
+	// Permission is hereby granted, free of charge, to any person obtaining a
+	// copy of this software and associated documentation files (the
+	// "Software"), to deal in the Software without restriction, including
+	// without limitation the rights to use, copy, modify, merge, publish,
+	// distribute, sublicense, and/or sell copies of the Software, and to permit
+	// persons to whom the Software is furnished to do so, subject to the
+	// following conditions:
+	//
+	// The above copyright notice and this permission notice shall be included
+	// in all copies or substantial portions of the Software.
+	//
+	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+	// USE OR OTHER DEALINGS IN THE SOFTWARE.
+	
+	'use strict';
+	
+	var stringifyPrimitive = function(v) {
+	  switch (typeof v) {
+	    case 'string':
+	      return v;
+	
+	    case 'boolean':
+	      return v ? 'true' : 'false';
+	
+	    case 'number':
+	      return isFinite(v) ? v : '';
+	
+	    default:
+	      return '';
+	  }
+	};
+	
+	module.exports = function(obj, sep, eq, name) {
+	  sep = sep || '&';
+	  eq = eq || '=';
+	  if (obj === null) {
+	    obj = undefined;
+	  }
+	
+	  if (typeof obj === 'object') {
+	    return map(objectKeys(obj), function(k) {
+	      var ks = encodeURIComponent(stringifyPrimitive(k)) + eq;
+	      if (isArray(obj[k])) {
+	        return map(obj[k], function(v) {
+	          return ks + encodeURIComponent(stringifyPrimitive(v));
+	        }).join(sep);
+	      } else {
+	        return ks + encodeURIComponent(stringifyPrimitive(obj[k]));
+	      }
+	    }).join(sep);
+	
+	  }
+	
+	  if (!name) return '';
+	  return encodeURIComponent(stringifyPrimitive(name)) + eq +
+	         encodeURIComponent(stringifyPrimitive(obj));
+	};
+	
+	var isArray = Array.isArray || function (xs) {
+	  return Object.prototype.toString.call(xs) === '[object Array]';
+	};
+	
+	function map (xs, f) {
+	  if (xs.map) return xs.map(f);
+	  var res = [];
+	  for (var i = 0; i < xs.length; i++) {
+	    res.push(f(xs[i], i));
+	  }
+	  return res;
+	}
+	
+	var objectKeys = Object.keys || function (obj) {
+	  var res = [];
+	  for (var key in obj) {
+	    if (Object.prototype.hasOwnProperty.call(obj, key)) res.push(key);
+	  }
+	  return res;
+	};
+
+
+/***/ },
+/* 534 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	exports['default'] = function (props, nextProps) {
+	
+	  var propsKeys = Object.keys(props);
+	  var nextPropsKeys = Object.keys(nextProps);
+	  if (propsKeys.length !== nextPropsKeys.length) {
+	    return false;
+	  }
+	
+	  for (var i = 0; i < propsKeys.length; i++) {
+	    var key = propsKeys[i];
+	    if (key !== 'children' && key.indexOf('on') !== 0 && (!nextProps.hasOwnProperty(key) || props[key] !== nextProps[key])) {
+	      return false;
+	    }
+	  }
+	
+	  return true;
+	};
+	
+	module.exports = exports['default'];
+
+/***/ },
+/* 535 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _entity = __webpack_require__(536);
+	
+	var _entity2 = _interopRequireDefault(_entity);
+	
+	var _eventsMarker = __webpack_require__(537);
+	
+	var _eventsMarker2 = _interopRequireDefault(_eventsMarker);
+	
+	exports['default'] = (0, _entity2['default'])('Marker', 'position', _eventsMarker2['default']);
+	module.exports = exports['default'];
+
+/***/ },
+/* 536 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	var _react = __webpack_require__(77);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _mixinsListener = __webpack_require__(529);
+	
+	var _mixinsListener2 = _interopRequireDefault(_mixinsListener);
+	
+	var _utilsCompareProps = __webpack_require__(534);
+	
+	var _utilsCompareProps2 = _interopRequireDefault(_utilsCompareProps);
+	
+	exports['default'] = function (name, latLngProp, events) {
+	  return _react2['default'].createClass({
+	
+	    mixins: [_mixinsListener2['default']],
+	
+	    entity: null,
+	
+	    componentDidMount: function componentDidMount() {
+	      var options = this.getOptions(this.props);
+	      this.entity = new google.maps[name](options);
+	      this.addListeners(this.entity, events);
+	    },
+	
+	    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	      if (!(0, _utilsCompareProps2['default'])(this.props, nextProps)) {
+	        var options = this.getOptions(nextProps);
+	        this.entity.setOptions(options);
+	      }
+	    },
+	
+	    componentWillUnmount: function componentWillUnmount() {
+	      this.entity.setMap(null);
+	      this.removeListeners();
+	      this.entity = null;
+	    },
+	
+	    getEntity: function getEntity() {
+	      return this.entity;
+	    },
+	
+	    getOptions: function getOptions(props) {
+	      return _extends({}, props, _defineProperty({}, latLngProp, new google.maps.LatLng(props.lat, props.lng)));
+	    },
+	
+	    render: function render() {
+	      return null;
+	    }
+	
+	  });
+	};
+	
+	module.exports = exports['default'];
+
+/***/ },
+/* 537 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	exports['default'] = {
+	  onAnimationChanged: 'animation_changed',
+	  onClick: 'click',
+	  onClickableChanged: 'clickable_changed',
+	  onCursorChanged: 'cursor_changed',
+	  onDblClick: 'dblclick',
+	  onDrag: 'drag',
+	  onDragEnd: 'dragend',
+	  onDraggableChanged: 'draggable_changed',
+	  onDragStart: 'dragstart',
+	  onFlatChanged: 'flat_changed',
+	  onIconChanged: 'icon_changed',
+	  onMouseDown: 'mousedown',
+	  onMouseOut: 'mouseout',
+	  onMouseOver: 'mouseover',
+	  onMouseUp: 'mouseup',
+	  onPositionChanged: 'position_changed',
+	  onRightClick: 'rightclick',
+	  onShapeChanged: 'shape_changed',
+	  onTitleChanged: 'title_changed',
+	  onVisibleChanged: 'visible_changed',
+	  onZindexChanged: 'zindex_changed'
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 538 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _entity = __webpack_require__(536);
+	
+	var _entity2 = _interopRequireDefault(_entity);
+	
+	var _eventsInfoWindow = __webpack_require__(539);
+	
+	var _eventsInfoWindow2 = _interopRequireDefault(_eventsInfoWindow);
+	
+	exports['default'] = (0, _entity2['default'])('InfoWindow', 'position', _eventsInfoWindow2['default']);
+	module.exports = exports['default'];
+
+/***/ },
+/* 539 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	exports['default'] = {
+	  onCloseClick: 'closeclick',
+	  onContentChanged: 'content_changed',
+	  onDOMReady: 'domready',
+	  onPositionChanged: 'position_changed',
+	  onZindexChanged: 'zindex_changed'
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 540 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _entity = __webpack_require__(536);
+	
+	var _entity2 = _interopRequireDefault(_entity);
+	
+	var _eventsCircle = __webpack_require__(541);
+	
+	var _eventsCircle2 = _interopRequireDefault(_eventsCircle);
+	
+	exports['default'] = (0, _entity2['default'])('Circle', 'center', _eventsCircle2['default']);
+	module.exports = exports['default'];
+
+/***/ },
+/* 541 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	exports['default'] = {
+	  onCenterChanged: 'center_changed',
+	  onClick: 'click',
+	  onDblClick: 'dblclick',
+	  onDrag: 'drag',
+	  onDragEnd: 'dragend',
+	  onDragStart: 'dragstart',
+	  onMouseDown: 'mousedown',
+	  onMouseMove: 'mousemove',
+	  onMouseOut: 'mouseout',
+	  onMouseOver: 'mouseover',
+	  onMouseUp: 'mouseup',
+	  onRadiusChanged: 'radius_changed',
+	  onRightClick: 'rightclick'
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 542 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(525);
+	var content = __webpack_require__(543);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(347)(content, {});
@@ -64679,8 +65697,8 @@
 	if(true) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept(525, function() {
-				var newContent = __webpack_require__(525);
+			module.hot.accept(543, function() {
+				var newContent = __webpack_require__(543);
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -64690,7 +65708,7 @@
 	}
 
 /***/ },
-/* 525 */
+/* 543 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(346)();
@@ -64698,13 +65716,13 @@
 	
 	
 	// module
-	exports.push([module.id, ".labs-infos .table-employees{\r\n    height: 200px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n.labs-infos .input-form{\r\n    margin-top: -5px;\r\n}\r\n", ""]);
+	exports.push([module.id, ".labs-infos .table-employees{\r\n    height: 150px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n.labs-infos .input-form{\r\n    margin-top: -5px;\r\n}\r\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 526 */
+/* 544 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64715,11 +65733,11 @@
 	
 	var _redux = __webpack_require__(321);
 	
-	var _textTest = __webpack_require__(527);
+	var _textTest = __webpack_require__(545);
 	
 	var _textTest2 = _interopRequireDefault(_textTest);
 	
-	var _reduceLabs = __webpack_require__(528);
+	var _reduceLabs = __webpack_require__(546);
 	
 	var _reduceLabs2 = _interopRequireDefault(_reduceLabs);
 	
@@ -64743,7 +65761,7 @@
 	exports.default = store;
 
 /***/ },
-/* 527 */
+/* 545 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64789,7 +65807,7 @@
 	}
 
 /***/ },
-/* 528 */
+/* 546 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64817,10 +65835,6 @@
 	                country: 'France',
 	                city: "Paris",
 	                employee: [{ id: "FRPA001", firstName: "John", lastName: "Doe", mail: "john@example.com", status: "Manager" }, { id: "FRPA002", firstName: "jiji", lastName: "Doe", mail: "jiji@example.com", status: "employee" }, { id: "FRPA003", firstName: "juju", lastName: "Doe", mail: "juju@example.com", status: "employee" }]
-	            }, {
-	                country: 'France',
-	                city: "Lyon",
-	                employee: [{ id: "FRLY001", firstName: "JohnL", lastName: "Doe", mail: "john@example.com", status: "Manager" }, { id: "FRLY002", firstName: "jijiL", lastName: "Doe", mail: "jiji@example.com", status: "employee" }, { id: "FRLY003", firstName: "jujuL", lastName: "Doe", mail: "juju@example.com", status: "employee" }]
 	            }]
 	        }, {
 	            id: '2',
@@ -64898,13 +65912,13 @@
 	}
 
 /***/ },
-/* 529 */
+/* 547 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(530);
+	var content = __webpack_require__(548);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(347)(content, {});
@@ -64913,8 +65927,8 @@
 	if(true) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept(530, function() {
-				var newContent = __webpack_require__(530);
+			module.hot.accept(548, function() {
+				var newContent = __webpack_require__(548);
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -64924,7 +65938,7 @@
 	}
 
 /***/ },
-/* 530 */
+/* 548 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(346)();

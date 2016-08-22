@@ -8,6 +8,7 @@ import * as labsActions from '../../redux/actions/labsActions';
 
 import EditProfile from '../editProfile/EditProfile';
 import StatByProfile from '../statByProfile/StatByProfile';
+import MapLabs from '../Map/MapLabs';
 
 /** State **/
 const mapStateToProps = (state) => ({
@@ -92,18 +93,25 @@ class Infos extends Component {
             }
         }
 
-        console.log("lab", lab);
+        //console.log("lab", lab);
         return(
             <div className="labs-infos">
                 <div className="container">
-                    hey
-                    <a href="#" onClick={self.displayOff.bind(self)}> off </a>
+                    <h2>
+                        <a href="#" onClick={self.displayOff.bind(self)}>
+                            <i className="fa fa-hand-o-left" aria-hidden="true"></i>
+                        </a>
+                    </h2>
+
+                    <div>
+                        <MapLabs point={self.props.labs.data[self.props.id].labs} />
+                    </div>
+                    <br/>
+                    <br/>
 
                     {lab &&
-                        <div className="">
-                            <h2>Labs</h2>
-                            <p>The .table-hover class enables a hover state on table rows:</p>
-                            <br/>
+                        <div>
+                            <h3> Employees </h3>
                             <div className="table-employees">
                                 <table className="table table-hover">
                                     <thead>
@@ -118,12 +126,12 @@ class Infos extends Component {
                                     <tbody className="">
                                     {lab && lab.map(function(item, index) {
                                         return(
-                                        <tr key={index} >
-                                            <td onClick={self.statByProfile.bind(self )}>{item.identity.firstName}</td>
-                                            <td onClick={self.statByProfile.bind(self )}>{item.identity.lastName}</td>
-                                            <td onClick={self.statByProfile.bind(self )}>{item.identity.mail}</td>
-                                            <td onClick={self.statByProfile.bind(self )}>{item.identity.status}</td>
-                                            <td><i className="fa fa-pencil-square-o" aria-hidden="true" onClick={self.editProfile.bind(self, item )}></i> </td>
+                                        <tr key={index} onClick={self.editProfile.bind(self, item )}>
+                                            <td>{item.identity.firstName}</td>
+                                            <td>{item.identity.lastName}</td>
+                                            <td>{item.identity.mail}</td>
+                                            <td>{item.identity.status}</td>
+                                            <td><i className="fa fa-pencil-square-o" aria-hidden="true"></i> </td>
                                         </tr>
                                         );
                                     })}

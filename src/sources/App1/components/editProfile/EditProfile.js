@@ -103,8 +103,6 @@ class EditProfile extends Component {
 
                     <div className="col-sm-6 margin">
 
-                        <h2 className="text-center"> Form </h2>
-
                         <div className="form-group">
                             <Input classNames={ {icon: "fa-fa"}}
                                    text="Firstname"

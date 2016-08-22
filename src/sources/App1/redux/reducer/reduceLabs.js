@@ -17,14 +17,6 @@ const initialState = {
                             {id: "FRPA002", firstName: "jiji", lastName: "Doe", mail: "jiji@example.com", status: "employee"},
                             {id: "FRPA003", firstName: "juju", lastName: "Doe", mail: "juju@example.com", status: "employee"}
                         ]
-                    }, {
-                        country : 'France',
-                        city: "Lyon",
-                        employee: [
-                            {id: "FRLY001", firstName: "JohnL", lastName: "Doe", mail: "john@example.com", status: "Manager"},
-                            {id: "FRLY002", firstName: "jijiL", lastName: "Doe", mail: "jiji@example.com", status: "employee"},
-                            {id: "FRLY003", firstName: "jujuL", lastName: "Doe", mail: "juju@example.com", status: "employee"}
-                        ]
                     }
                 ]
             }, {
