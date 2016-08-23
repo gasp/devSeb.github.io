@@ -29,22 +29,25 @@ class LabList extends Component {
         require('./LabList.css');
     }
 
+    /** desc:  display component by lab **/
     loadDisplayLabs(id) {
-        console.log("click", id);
+        //console.log("click", id);
         //console.log(this.props.labsActions);
         this.props.labsActions.displayByLabs( !this.props.display.content, id );
     }
 
     render() {
-        console.log("render users class");
-        console.log("element", this.props.display);
-        console.log("element", this.props.labsActions);
+        //console.log("render users class");
+        //console.log("element", this.props.display);
+        //console.log("element", this.props.labsActions);
         //console.log("$", $('.test'));
         var self = this;
         var beginAndEndInter = 0;
         var betweenInter = 0;
         var res = (self.props.labs) ? self.props.labs.length : 0;
-        console.log("element", res );
+
+        //console.log("element", res );
+        /** display dynamically  **/
         if ( res === 1) { beginAndEndInter = 5;  betweenInter = 0; }
         if ( res === 2) { beginAndEndInter = 3;  betweenInter = 2; }
         if ( res === 3) { beginAndEndInter = 2;  betweenInter = 1; }
@@ -52,7 +55,7 @@ class LabList extends Component {
         if ( res === 5) { beginAndEndInter = 1;  betweenInter = 0; }
 
         return(
-            <div className="labs-users">
+            <div className="labs-list">
                 <div className="container">
                     <div className="col-sm-1">
                     </div>
@@ -60,20 +63,20 @@ class LabList extends Component {
                     <div className="col-sm-10 text-center">
                         <div className="row box">
                             <div className="">
-                                <h3>Profiles</h3>
+                                <h1> Cities </h1>
                             </div>
-                            <br/>
 
-                            <div className="users text-center">
+                            <br/> <br/>
+
+                            <div className="labs text-center">
 
                                 <div className={"col-sm-" + beginAndEndInter}>
                                 </div>
 
                                 {self.props.labs && self.props.labs.map(function(item, index) {
-                                    console.log("item", item );
-                                    console.log("item.labs", item.labs );
+                                    //console.log("item.labs", item.labs );
                                     return (
-                                        <div key={index} className="user">
+                                        <div key={index} className="labs-elements">
                                             <div className="col-sm-2">
                                                 <div className="jumbotron-icon text-center">
                                                     <a href="#" onClick={self.loadDisplayLabs.bind(self, item.id)} >

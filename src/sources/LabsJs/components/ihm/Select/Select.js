@@ -15,12 +15,13 @@ const mapDispatchToProps = (dispatch) => ({
     //labsActions: bindActionCreators(labsActions, dispatch)
 });
 
-class Input extends Component {
+class Select extends Component {
 
     static propTypes = {
         classNames: PropTypes.object,
         text: PropTypes.string,
-        value: PropTypes.string
+        value: PropTypes.string,
+        values: PropTypes.array
     };
 
     constructor(props, context) {
@@ -37,15 +38,17 @@ class Input extends Component {
     }
 
     _defaultOnChange (event) {
-        //console.log("event input ", event);
+        console.log("event select ", event);
         this.setState({value: event.target.value});
     }
 
     render() {
-        console.log("render Input");
+        console.log("render Select");
         var self = this;
         //console.log("render input", self.state.value);
         //console.log("element", self.props.lab.labs[0]);
+
+        /** self.state.value **/
         let {onChange} = this.props;
         onChange = onChange || this._defaultOnChange.bind(this);
 
@@ -54,10 +57,16 @@ class Input extends Component {
             <div className="input">
                 <div className="form-group">
                     <label type="text">{self.props.text} </label>
-                    <input className="form-control" value={self.state.value} onChange={onChange}/>
+                    <select className="form-control" value={self.props.value} onChange={onChange}>
+                        {self.props.values.map(function(item, index){
+                            return(
+                                <option key={index} value={item.value}>{item.name}</option>
+                            )
+                        })}
+                    </select>
                 </div>
             </div>
         );
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps) (Input);
+export default connect(mapStateToProps, mapDispatchToProps) (Select);

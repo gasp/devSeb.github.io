@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch) => ({
     //labsActions: bindActionCreators(labsActions, dispatch)
 });
 
-class Select extends Component {
+class Input extends Component {
 
     static propTypes = {
         classNames: PropTypes.object,
@@ -44,10 +44,8 @@ class Select extends Component {
     render() {
         console.log("render Input");
         var self = this;
-        //console.log("render input", self.state.value);
-        //console.log("element", self.props.lab.labs[0]);
-        let {onChange} = this.props;
-        onChange = onChange || this._defaultOnChange.bind(this);
+        let {onChange} = self.props;
+        onChange = onChange /*|| this._defaultOnChange.bind(this)*/;
 
 
         return(
@@ -60,4 +58,4 @@ class Select extends Component {
         );
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps) (Select);
+export default connect(mapStateToProps, mapDispatchToProps) (Input);

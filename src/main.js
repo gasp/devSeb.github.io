@@ -19,7 +19,7 @@ import Projects from './views/Projects.js';
 import Error404 from './views/Error404.js';
 
 import ChartJs from './sources/ChartJs/views/ChartJs';
-import Labs from './sources/App1/view/Labs';
+import Labs from './sources/LabsJs/view/Labs';
 
 /** Redux  init **/
 import { Provider } from 'react-redux'

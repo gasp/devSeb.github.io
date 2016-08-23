@@ -33,6 +33,7 @@ class Labs extends Component {
     }
 
     componentDidMount () {
+        require('./labs.css');
     }
 
     componentWillReceiveProps(nextProps) {

@@ -127,9 +127,8 @@ class ChartJs extends Component {
                 </div>
                 <br/>
                 <br/>
-                <div className="container">
-                    <div className={ (this.state.sideBarLeftDisplay) ? "margin" : ""}>
-
+                <div className={ (this.state.sideBarLeftDisplay) ? "margin text-center" : "text-center"}>
+                    <div className="container">
                         <h2>ChartJs Project</h2>
 
                         <div className="container ">

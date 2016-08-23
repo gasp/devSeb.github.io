@@ -45,21 +45,44 @@ class App extends Component {
                 </div>
 
                 <div className="container">
-                    <div className="row">
 
-                        <div className="col-sm-10">
+                        <div className="col-sm-7">
                             <Project />
                         </div>
 
-                        <div className="row col-sm-2 news">
-                            <h4><label className="label label-success">
-                                Working Progress ...
-                            </label></h4>
+                        <div className="col-sm-3"></div>
+
+                        <div className="col-sm-2 news">
+                            <h3><label className="label label-default">My Profile </label></h3>
+                            <br/>
+                             <div>
+                                 <h3>Web engineer</h3>
+                                 <p>I'm Sébastien , Miage web developer.
+                                     I studied at Paris XII University,
+                                     <a href="https://www.miage.u-pec.fr/" target="_blank" > MIAGE UPEC </a>.
+                                     <br/>
+                                     <br/>
+                                     You can follow me on these socials networks:
+                                 </p>
+                                 <ul className="list-inline">
+                                     <li>
+                                         <a href="https://fr.linkedin.com/in/sebastien-maillard-695b4075" target="_blank" >
+                                            <i className="fa fa-linkedin-square icon-fa-2 color-blue" aria-hidden="true"></i>
+                                         </a>
+                                     </li>
+                                     <li>
+                                         <a href="https://github.com/devSeb" target="_blank">
+                                            <i className="fa fa-github-square icon-fa-2" aria-hidden="true"></i>
+                                         </a>
+                                     </li>
+                                </ul>
+                             </div>
+                            <br/>
+                            <br/>
                             <br/>
                         </div>
 
-                    </div>
-                </div>
+                </div> {/* container */}
 
                 <div>
                     <Footer />

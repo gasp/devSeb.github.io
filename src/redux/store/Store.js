@@ -9,7 +9,7 @@ import textTest from '../reducers/textTest';
 
 
 /** Others apps  **/
-import reduceLabs from '../../sources/App1/redux/reducer/reduceLabs';
+import reduceLabs from '../../sources/LabsJs/redux/reducer/reduceLabs';
 
 
 /** List of reducers **/

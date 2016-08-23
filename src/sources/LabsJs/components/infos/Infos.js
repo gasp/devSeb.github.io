@@ -47,11 +47,15 @@ class Infos extends Component {
         }
     }
 
+    /** Desc: show ot hide content of a lab **/
     displayOff() {
         this.props.labsActions.displayByLabs( !this.props.display.content);
         this.props.labsActions.showEditProfile(false);
     }
 
+    /** Desc: onClick Event if user select row in the table html
+     *  Feat: Edit profile and save on the reducer
+     **/
     editProfile(profile) {
         console.log("user", profile);
         this.props.labsActions.showEditProfile(true);
@@ -66,19 +70,10 @@ class Infos extends Component {
         this.setState({showEdit: !this.state.showEdit});
     }
 
-
-
-    loadDisplayLabs() {
-        //console.log("click");
-        //console.log(this.props.labsActions);
-       // this.props.labsActions.displayByLabs( !this.props.display.content );
-    }
-
     render() {
         console.log("render info");
         var self = this;
         var lab = [];
-        var employees = {};
         for ( let obj of self.props.labs.data[self.props.id].labs) {
             if ( obj.employee ) {
                 for (let employee of obj.employee){
@@ -142,7 +137,7 @@ class Infos extends Component {
                             </div>
                         }
                         <div className="col-sm-1" />
-                        {self.props.showStatsByProfile.display &&
+                        {/*self.props.showStatsByProfile.display*/ self.props.showEditProfile.display  &&
                             <div className="col-sm-6">
                                 <StatByProfile  profile={self.state.profile} />
                             </div>
