@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch) => ({
     labsActions: bindActionCreators(labsActions, dispatch)
 });
 
-class Users extends Component {
+class LabList extends Component {
 
     static propTypes = {
         labs: PropTypes.array
@@ -26,7 +26,7 @@ class Users extends Component {
     }
 
     componentDidMount () {
-        require('./Users.css');
+        require('./LabList.css');
     }
 
     loadDisplayLabs(id) {
@@ -106,4 +106,4 @@ class Users extends Component {
         );
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Users);
+export default connect(mapStateToProps, mapDispatchToProps)(LabList);

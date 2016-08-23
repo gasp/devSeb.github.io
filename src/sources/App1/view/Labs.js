@@ -8,7 +8,7 @@ import NavBar from '../../../components/NavBar/NavBar';
 import Footer from '../../../components/Footer/Footer';
 
 /** private Components **/
-import Users from '../components/users/Users';
+import LabList from '../components/LabList/LabList';
 import Infos from '../components/infos/Infos';
 
 /** Reducer Action**/
@@ -64,7 +64,7 @@ class Labs extends Component {
                <div className="container">
                    {!self.props.display.content && self.props.labs.data &&
                        <div>
-                            <Users labs={self.props.labs.data}/>
+                            <LabList labs={self.props.labs.data}/>
                        </div>
                    }
                    {self.props.display.content && self.props.labs.data &&
