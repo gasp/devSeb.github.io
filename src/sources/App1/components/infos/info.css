@@ -6,3 +6,8 @@
 .labs-infos .input-form{
     margin-top: -5px;
 }
+.labs-infos .title{
+    border-radius: 25px;
+    background: #73AD21;
+    padding: 20px;
+}

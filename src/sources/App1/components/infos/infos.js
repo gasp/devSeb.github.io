@@ -98,15 +98,13 @@ class Infos extends Component {
                         </a>
                     </h2>
 
-                    <div>
+                    <div className="col-sm-12">
                         <MapLabs point={self.props.labs.data[self.props.id].labs} />
                     </div>
-                    <br/>
-                    <br/>
 
                     {lab &&
-                        <div>
-                            <h3> Employees </h3>
+                        <div className="col-sm-12">
+                            <h3 className="text-center title"> Employees </h3>
                             <div className="table-employees">
                                 <table className="table table-hover">
                                     <thead>
@@ -136,18 +134,23 @@ class Infos extends Component {
                         </div>
                     }
                     <br/>
-                    <br/>
 
                     <div className="col-sm-12">
                         {self.props.showEditProfile.display &&
-                            <EditProfile profile={self.state.profile} />
+                            <div className="col-sm-5">
+                                <EditProfile profile={self.state.profile} />
+                            </div>
                         }
-                        <br/>
+                        <div className="col-sm-1" />
                         {self.props.showStatsByProfile.display &&
-                            <StatByProfile  profile={self.state.profile}/>
+                            <div className="col-sm-6">
+                                <StatByProfile  profile={self.state.profile} />
+                            </div>
                         }
                     </div>
                 </div>
+                <br/>
+                <br/>
             </div>
         );
     }

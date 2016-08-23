@@ -100,44 +100,41 @@ class EditProfile extends Component {
        // console.log("profile", self.props.profile);
         return (
             <div className="edit-profile">
-                    <div className="col-sm-6 margin">
 
-                        <h2 className="text-center"> Edit Profile </h2>
+                <h2 className="text-center title"> Edit Profile </h2>
 
-                        <div className="form-group">
-                            <Input classNames={ {icon: "fa-fa"}}
-                                   text="Firstname"
-                                   value={self.state.firstName}
-                                   onChange={self.handleChangeFirstName.bind(self) }/>
-                        </div>
+                <div className="form-group">
+                    <Input classNames={ {icon: "fa-fa"}}
+                           text="Firstname"
+                           value={self.state.firstName}
+                           onChange={self.handleChangeFirstName.bind(self) }/>
+                </div>
 
-                        <div className="form-group">
-                            <Input classNames={ {icon: "fa-fa"}}
-                                   text="Lastname"
-                                   value={self.state.lastName}
-                                   onChange={self.handleChangeLastName.bind(self) }/>
-                        </div>
+                <div className="form-group">
+                    <Input classNames={ {icon: "fa-fa"}}
+                           text="Lastname"
+                           value={self.state.lastName}
+                           onChange={self.handleChangeLastName.bind(self) }/>
+                </div>
 
-                        <div className="form-group">
-                            <Input classNames={ {icon: "fa-fa"}}
-                                   text="Mail"
-                                   value={self.state.mail}
-                                   onChange={self.handleChangeMail.bind(self) }/>
-                        </div>
+                <div className="form-group">
+                    <Input classNames={ {icon: "fa-fa"}}
+                           text="Mail"
+                           value={self.state.mail}
+                           onChange={self.handleChangeMail.bind(self) }/>
+                </div>
 
-                        <div className="form-group">
-                            <Input classNames={ {icon: "fa-fa"}}
-                                   text="Status"
-                                   value={self.state.status}
-                                   onChange={self.handleChangeStatus.bind(self) }/>
-                        </div>
+                <div className="form-group">
+                    <Input classNames={ {icon: "fa-fa"}}
+                           text="Status"
+                           value={self.state.status}
+                           onChange={self.handleChangeStatus.bind(self) }/>
+                </div>
 
-                        <div className="form-group btn-toolbar">
-                            <button type="button" className="btn btn-success" onClick={self._handleSaveForm.bind(self)}> Save </button>
-                            <button type="reset" className="btn btn-danger"> Reset </button>
-                        </div>
-
-                    </div>
+                <div className="form-group btn-toolbar">
+                    <button type="button" className="btn btn-success" onClick={self._handleSaveForm.bind(self)}> Save </button>
+                    <button type="reset" className="btn btn-danger"> Reset </button>
+                </div>
 
             </div>
         );

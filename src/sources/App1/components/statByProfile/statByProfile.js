@@ -26,6 +26,10 @@ class StatByProfile extends Component {
         super(props, context);
     }
 
+    componentDidMount() {
+        require('./statByProfile.css');
+    }
+
 
     render() {
         console.log("render StatByProfile");
@@ -72,10 +76,8 @@ class StatByProfile extends Component {
 
         return(
             <div className="stat-by-profile">
-                <div className="col-sm-6">
-                    <h2 className="text-center"> Chart </h2>
-                    <div id="labs-chart1" className="text-center">
-                    </div>
+                <h2 className="text-center title"> Chart </h2>
+                <div id="labs-chart1" className="text-center">
                 </div>
             </div>
         );

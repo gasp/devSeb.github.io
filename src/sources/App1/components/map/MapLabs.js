@@ -33,6 +33,10 @@ class MapLabs extends Component {
         }
     }
 
+    componentDidMount() {
+        require('./MapLabs.css');
+    }
+
     onMapCreated(map) {
         map.setOptions({
             disableDefaultUI: true
