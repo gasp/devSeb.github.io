@@ -41,7 +41,7 @@ class StatByProfile extends Component {
         console.log("profile", self.props.profile);
 
         var data = {
-            0: [12, 19, 3, 5, 2, 3]
+            0: [12, 19, 13, 15, 14, 16]
         };
 
         $(function() {
@@ -56,7 +56,7 @@ class StatByProfile extends Component {
                 data: {
                     labels: ["January", "February", "Mars", "April", "May", "June"],
                     datasets: [{
-                        label: '# of Sales',
+                        label: '# of detecting a non-compliance products per day',
                         data: data[0],
                         backgroundColor: 'rgba(255,99,132,1)',
                         borderColor: 'rgba(255, 206, 86, 1)',

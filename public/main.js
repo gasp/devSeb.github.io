@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "1521a491340c1301ee54"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "9cf7665a9ec2913e31ee"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -63653,7 +63653,8 @@
 	                                { className: 'users text-center' },
 	                                _react2.default.createElement('div', { className: "col-sm-" + beginAndEndInter }),
 	                                self.props.labs && self.props.labs.map(function (item, index) {
-	                                    //console.log("item", item);
+	                                    console.log("item", item);
+	                                    console.log("item.labs", item.labs);
 	                                    return _react2.default.createElement(
 	                                        'div',
 	                                        { key: index, className: 'user' },
@@ -63670,7 +63671,9 @@
 	                                                    _react2.default.createElement(
 	                                                        'p',
 	                                                        null,
-	                                                        ' John '
+	                                                        ' ',
+	                                                        item.labs[0].city,
+	                                                        ' '
 	                                                    )
 	                                                )
 	                                            )
@@ -64654,7 +64657,7 @@
 	            console.log("profile", self.props.profile);
 	
 	            var data = {
-	                0: [12, 19, 3, 5, 2, 3]
+	                0: [12, 19, 13, 15, 14, 16]
 	            };
 	
 	            $(function () {
@@ -64669,7 +64672,7 @@
 	                    data: {
 	                        labels: ["January", "February", "Mars", "April", "May", "June"],
 	                        datasets: [{
-	                            label: '# of Sales',
+	                            label: '# of detecting a non-compliance products per day',
 	                            data: data[0],
 	                            backgroundColor: 'rgba(255,99,132,1)',
 	                            borderColor: 'rgba(255, 206, 86, 1)',
@@ -65960,21 +65963,21 @@
 	            labs: [{
 	                country: 'France',
 	                city: "Paris",
-	                employee: [{ id: "FRPA001", firstName: "John", lastName: "Doe", mail: "john@example.com", status: "Manager" }, { id: "FRPA002", firstName: "jiji", lastName: "Doe", mail: "jiji@example.com", status: "employee" }, { id: "FRPA003", firstName: "juju", lastName: "Doe", mail: "juju@example.com", status: "employee" }]
+	                employee: [{ id: "FRPA001", firstName: "John", lastName: "Doe", mail: "john@example.com", status: "Employee" }, { id: "FRPA002", firstName: "jiji", lastName: "Doe", mail: "jiji@example.com", status: "Employee" }, { id: "FRPA003", firstName: "juju", lastName: "Doe", mail: "juju@example.com", status: "Employee" }]
 	            }]
 	        }, {
 	            id: '2',
 	            labs: [{
 	                country: 'England',
 	                city: "London",
-	                employee: [{ id: "ENLO001", firstName: "Jane", lastName: "Doe", mail: "jane@example.com", status: "Manager" }, { id: "ENLO002", firstName: "jojo", lastName: "Doe", mail: "jojo@example.com", status: "employee" }, { id: "ENLO003", firstName: "jaja", lastName: "Doe", mail: "jaja@example.com", status: "employee" }]
+	                employee: [{ id: "ENLO001", firstName: "Jane", lastName: "Doe", mail: "jane@example.com", status: "Employee" }, { id: "ENLO002", firstName: "jojo", lastName: "Doe", mail: "jojo@example.com", status: "Employee" }, { id: "ENLO003", firstName: "jaja", lastName: "Doe", mail: "jaja@example.com", status: "Employee" }]
 	            }]
 	        }, {
 	            id: '3',
 	            labs: [{
 	                country: 'Belgium',
 	                city: "Bruxelles",
-	                employee: [{ id: "BEBR001", firstName: "Jacky", lastName: "Doe", mail: "jacky@example.com", status: "Manager" }, { id: "BEBR002", firstName: "jeje", lastName: "Doe", mail: "jeje@example.com", status: "employee" }, { id: "BEBR003", firstName: "jaja", lastName: "Doe", mail: "jaja@example.com", status: "employee" }]
+	                employee: [{ id: "BEBR001", firstName: "Jack", lastName: "Doe", mail: "jack@example.com", status: "Employee" }, { id: "BEBR002", firstName: "jeje", lastName: "Doe", mail: "jeje@example.com", status: "Employee" }, { id: "BEBR003", firstName: "jaja", lastName: "Doe", mail: "jaja@example.com", status: "Employee" }]
 	            }]
 	        }]
 	    },

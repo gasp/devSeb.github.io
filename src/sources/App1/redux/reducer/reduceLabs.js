@@ -13,9 +13,9 @@ const initialState = {
                         country : 'France',
                         city: "Paris",
                         employee: [
-                            {id: "FRPA001", firstName: "John", lastName: "Doe", mail: "john@example.com", status: "Manager"},
-                            {id: "FRPA002", firstName: "jiji", lastName: "Doe", mail: "jiji@example.com", status: "employee"},
-                            {id: "FRPA003", firstName: "juju", lastName: "Doe", mail: "juju@example.com", status: "employee"}
+                            {id: "FRPA001", firstName: "John", lastName: "Doe", mail: "john@example.com", status: "Employee"},
+                            {id: "FRPA002", firstName: "jiji", lastName: "Doe", mail: "jiji@example.com", status: "Employee"},
+                            {id: "FRPA003", firstName: "juju", lastName: "Doe", mail: "juju@example.com", status: "Employee"}
                         ]
                     }
                 ]
@@ -26,9 +26,9 @@ const initialState = {
                         country : 'England',
                         city: "London",
                         employee: [
-                            {id: "ENLO001", firstName: "Jane", lastName: "Doe", mail: "jane@example.com", status: "Manager"},
-                            {id: "ENLO002", firstName: "jojo", lastName: "Doe", mail: "jojo@example.com", status: "employee"},
-                            {id: "ENLO003", firstName: "jaja", lastName: "Doe", mail: "jaja@example.com", status: "employee"}
+                            {id: "ENLO001", firstName: "Jane", lastName: "Doe", mail: "jane@example.com", status: "Employee"},
+                            {id: "ENLO002", firstName: "jojo", lastName: "Doe", mail: "jojo@example.com", status: "Employee"},
+                            {id: "ENLO003", firstName: "jaja", lastName: "Doe", mail: "jaja@example.com", status: "Employee"}
                         ]
                     }
                 ]
@@ -39,9 +39,9 @@ const initialState = {
                         country : 'Belgium',
                         city: "Bruxelles",
                         employee: [
-                            {id: "BEBR001", firstName: "Jacky", lastName: "Doe", mail: "jacky@example.com", status: "Manager"},
-                            {id: "BEBR002", firstName: "jeje", lastName: "Doe", mail: "jeje@example.com", status: "employee"},
-                            {id: "BEBR003", firstName: "jaja", lastName: "Doe", mail: "jaja@example.com", status: "employee"}
+                            {id: "BEBR001", firstName: "Jack", lastName: "Doe", mail: "jack@example.com", status: "Employee"},
+                            {id: "BEBR002", firstName: "jeje", lastName: "Doe", mail: "jeje@example.com", status: "Employee"},
+                            {id: "BEBR003", firstName: "jaja", lastName: "Doe", mail: "jaja@example.com", status: "Employee"}
                         ]
                     }
                 ]

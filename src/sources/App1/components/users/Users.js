@@ -70,14 +70,15 @@ class Users extends Component {
                                 </div>
 
                                 {self.props.labs && self.props.labs.map(function(item, index) {
-                                    //console.log("item", item);
+                                    console.log("item", item );
+                                    console.log("item.labs", item.labs );
                                     return (
                                         <div key={index} className="user">
                                             <div className="col-sm-2">
                                                 <div className="jumbotron-icon text-center">
                                                     <a href="#" onClick={self.loadDisplayLabs.bind(self, item.id)} >
                                                         <i className="fa fa-user fa-4" aria-hidden="true"></i>
-                                                        <p> John </p>
+                                                        <p> {item.labs[0].city } </p>
                                                     </a>
 
                                                 </div>
