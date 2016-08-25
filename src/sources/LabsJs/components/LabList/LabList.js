@@ -57,6 +57,10 @@ class LabList extends Component {
 
         return(
             <div className="labs-list">
+
+                <div className="test">
+                    <h1> test </h1>
+                </div>
                 <div className="container">
                     <div className="col-sm-1">
                     </div>
