@@ -39,7 +39,8 @@ class EditProfile extends Component {
     }
 
     componentDidMount () {
-        require('./editProfile.css');
+        //require('./editProfile.css');
+        require('./editProfile.less');
     }
 
     componentWillReceiveProps(nextProps) {

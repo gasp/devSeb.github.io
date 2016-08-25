@@ -27,7 +27,8 @@ class StatByProfile extends Component {
     }
 
     componentDidMount() {
-        require('./statByProfile.css');
+        //require('./statByProfile.css');
+        require('./statByProfile.less');
     }
 
 

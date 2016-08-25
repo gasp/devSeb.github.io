@@ -37,7 +37,8 @@ class Infos extends Component {
     }
 
     componentDidMount () {
-        require('./info.css');
+        //require('./info.css');
+        require('./info.less');
     }
 
     componentWillReceiveProps(nextProps) {

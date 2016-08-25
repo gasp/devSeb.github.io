@@ -34,7 +34,8 @@ class MapLabs extends Component {
     }
 
     componentDidMount() {
-        require('./MapLabs.css');
+        //require('./MapLabs.css');
+        require('./MapLabs.less');
     }
 
     onMapCreated(map) {
