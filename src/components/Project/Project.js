@@ -46,7 +46,7 @@ class Project extends Component {
             {   icon: "fa fa-android",
                 title : "Managing Labs",
                 desc : "Demo of a web application with form and manage data with redux.",
-                techno : [ "es6", "Promise", "React Js","React Redux", "Bootstrap","Chart.js", "Gmap.js (Google map)", "Geocoder (Google)"],
+                techno : [ "es6", "Promise", "React Js","React Redux", "Bootstrap", "Less", "Chart.js", "Gmap.js (Google map)", "Geocoder (Google)"],
                 link : "/labs",
                 source: "https://github.com/devSeb/devSeb.github.io/tree/master/src/sources/LabelJs",
                 img :imgLabsApp,
