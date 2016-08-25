@@ -24,6 +24,7 @@ class Project extends Component {
     }
 
     componentDidMount () {
+        require("./Projects.less");
     }
 
     render() {
@@ -55,7 +56,7 @@ class Project extends Component {
         ];
 
         return (
-            <div className="project">
+            <div className="projects">
                 <div>
                     { projects && projects.map(function (item, index ) {
                         return (
@@ -86,7 +87,7 @@ class Project extends Component {
                                     </div>
 
                                     <div className="col-sm-3 img-bloc">
-                                        <img src={ item.img } width="250" height="200"/>
+                                        <img src={ item.img } width="200" height="150"/>
                                     </div>
 
                                     <br/>
@@ -104,7 +105,10 @@ class Project extends Component {
                                                 </a>
                                             </li>
                                         </ul>
-                                        <hr /> <hr />
+
+                                    </div>
+                                    <div className="col-sm-12">
+                                        <hr />
                                     </div>
 
                                 </div>

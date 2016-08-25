@@ -56,7 +56,7 @@ class App extends Component {
                             <h3><label className="label label-default">My Profile </label></h3>
                             <br/>
                              <div>
-                                 <h3>Web engineer</h3>
+                                 <h3>Web developer</h3>
                                  <p>I'm Sébastien , Miage web developer.
                                      I studied at Paris XII University,
                                      <a href="https://www.miage.u-pec.fr/" target="_blank" > MIAGE UPEC </a>.

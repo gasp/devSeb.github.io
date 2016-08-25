@@ -68,7 +68,7 @@ class LabList extends Component {
                     </div>
 
                     <div className="col-sm-10 text-center">
-                        <div className="row box">
+                        <div className="-row box">
                             <div className="">
                                 <h1> Cities </h1>
                             </div>
