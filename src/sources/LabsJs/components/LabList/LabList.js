@@ -26,7 +26,8 @@ class LabList extends Component {
     }
 
     componentDidMount () {
-        require('./LabList.css');
+        //require('./LabList.css');
+        require('./LabList.less');
     }
 
     /** desc:  display component by lab **/
