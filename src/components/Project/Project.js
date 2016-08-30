@@ -52,8 +52,7 @@ class Project extends Component {
                 techno : [ "es6", "react-native", "Mobile App"],
                 link : null,
                 source: "https://github.com/devSeb/react-native-demos",
-                img : null,
-                inProgress: "In Progress ..."
+                img : null
             },
             {   icon: "fa fa-android",
                 title : "Web App with Chart.js",

@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "7ce5ce86942f0fd3373c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "df628d48294d04ea96c3"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -37732,8 +37732,7 @@
 	                techno: ["es6", "react-native", "Mobile App"],
 	                link: null,
 	                source: "https://github.com/devSeb/react-native-demos",
-	                img: null,
-	                inProgress: "In Progress ..."
+	                img: null
 	            }, { icon: "fa fa-android",
 	                title: "Web App with Chart.js",
 	                desc: "Demo of a web application chart with chart.js .",
