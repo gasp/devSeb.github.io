@@ -48,7 +48,7 @@ class Project extends Component {
             },
             {   icon: "fa fa-android",
                 title : "React-native Examples ",
-                desc : "Demo of react native project",
+                desc : "Demos of react native projects",
                 techno : [ "es6", "react-native", "Mobile App"],
                 link : null,
                 source: "https://github.com/devSeb/react-native-demos",

@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "df628d48294d04ea96c3"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "5d2e24c0c73d5c6ac6bb"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -37728,7 +37728,7 @@
 	                inProgress: "In Progress ..."
 	            }, { icon: "fa fa-android",
 	                title: "React-native Examples ",
-	                desc: "Demo of react native project",
+	                desc: "Demos of react native projects",
 	                techno: ["es6", "react-native", "Mobile App"],
 	                link: null,
 	                source: "https://github.com/devSeb/react-native-demos",
