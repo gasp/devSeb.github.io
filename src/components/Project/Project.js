@@ -36,14 +36,7 @@ class Project extends Component {
         let imgChartJsApp = require('./img/ChartjsApp.png');
         let imgLabsApp = require('./img/imgLabs.png');
         var projects = [
-            {   icon: "fa fa-android",
-                title : "Web App with Chart.js",
-                desc : "Demo of a web application chart with chart.js .",
-                techno : [ "es6", "ReactJs",  "Bootstrap",  "Chart.js"],
-                link : "/chartjs",
-                source: "https://github.com/devSeb/devSeb.github.io/tree/master/src/sources/ChartJs",
-                img :imgChartJsApp
-            },
+
             {   icon: "fa fa-android",
                 title : "Managing Labs",
                 desc : "Demo of a web application with form and manage data with redux.",
@@ -52,6 +45,23 @@ class Project extends Component {
                 source: "https://github.com/devSeb/devSeb.github.io/tree/master/src/sources/LabelJs",
                 img :imgLabsApp,
                 inProgress: "In Progress ..."
+            },
+            {   icon: "fa fa-android",
+                title : "React-native Examples ",
+                desc : "Demo of react native project",
+                techno : [ "es6", "react-native", "Mobile App"],
+                link : null,
+                source: "https://github.com/devSeb/react-native-demos",
+                img : null,
+                inProgress: "In Progress ..."
+            },
+            {   icon: "fa fa-android",
+                title : "Web App with Chart.js",
+                desc : "Demo of a web application chart with chart.js .",
+                techno : [ "es6", "ReactJs",  "Bootstrap",  "Chart.js"],
+                link : "/chartjs",
+                source: "https://github.com/devSeb/devSeb.github.io/tree/master/src/sources/ChartJs",
+                img :imgChartJsApp
             }
         ];
 
@@ -87,23 +97,27 @@ class Project extends Component {
                                     </div>
 
                                     <div className="col-sm-3 img-bloc">
-                                        <img src={ item.img } width="200" height="150"/>
+                                        {item.img &&
+                                            <img src={ item.img } width="200" height="150"/>
+                                        }
                                     </div>
 
                                     <br/>
 
                                     <div className="col-sm-9">
                                         <ul className="list-inline">
-                                            <li>
-                                                <Link className="btn btn-info" to={item.link}>
-                                                    <i className="glyphicon glyphicon-share-alt"></i> Demo
-                                                </Link>
-                                            </li>
-                                            <li>
-                                               <a href={item.source} target="_blank" className="btn btn-primary">
-                                                    <i className="fa fa-github" aria-hidden="true"></i> Sources
-                                                </a>
-                                            </li>
+                                            {item.link &&
+                                                <li>
+                                                    <Link className="btn btn-info" to={item.link}>
+                                                        <i className="glyphicon glyphicon-share-alt"></i> Demo
+                                                    </Link>
+                                                </li>
+                                            }
+                                                <li>
+                                                   <a href={item.source} target="_blank" className="btn btn-primary">
+                                                        <i className="fa fa-github" aria-hidden="true"></i> Sources
+                                                    </a>
+                                                </li>
                                         </ul>
 
                                     </div>

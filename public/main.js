@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "364479d53cf8d6ee9fad"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "7ce5ce86942f0fd3373c"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -37719,13 +37719,6 @@
 	            var imgChartJsApp = __webpack_require__(352);
 	            var imgLabsApp = __webpack_require__(353);
 	            var projects = [{ icon: "fa fa-android",
-	                title: "Web App with Chart.js",
-	                desc: "Demo of a web application chart with chart.js .",
-	                techno: ["es6", "ReactJs", "Bootstrap", "Chart.js"],
-	                link: "/chartjs",
-	                source: "https://github.com/devSeb/devSeb.github.io/tree/master/src/sources/ChartJs",
-	                img: imgChartJsApp
-	            }, { icon: "fa fa-android",
 	                title: "Managing Labs",
 	                desc: "Demo of a web application with form and manage data with redux.",
 	                techno: ["es6", "Promise", "React Js", "React Redux", "Bootstrap", "Less", "Chart.js", "Gmap.js (Google map)", "Geocoder (Google)"],
@@ -37733,6 +37726,21 @@
 	                source: "https://github.com/devSeb/devSeb.github.io/tree/master/src/sources/LabelJs",
 	                img: imgLabsApp,
 	                inProgress: "In Progress ..."
+	            }, { icon: "fa fa-android",
+	                title: "React-native Examples ",
+	                desc: "Demo of react native project",
+	                techno: ["es6", "react-native", "Mobile App"],
+	                link: null,
+	                source: "https://github.com/devSeb/react-native-demos",
+	                img: null,
+	                inProgress: "In Progress ..."
+	            }, { icon: "fa fa-android",
+	                title: "Web App with Chart.js",
+	                desc: "Demo of a web application chart with chart.js .",
+	                techno: ["es6", "ReactJs", "Bootstrap", "Chart.js"],
+	                link: "/chartjs",
+	                source: "https://github.com/devSeb/devSeb.github.io/tree/master/src/sources/ChartJs",
+	                img: imgChartJsApp
 	            }];
 	
 	            return _react2.default.createElement(
@@ -37794,7 +37802,7 @@
 	                                _react2.default.createElement(
 	                                    'div',
 	                                    { className: 'col-sm-3 img-bloc' },
-	                                    _react2.default.createElement('img', { src: item.img, width: '200', height: '150' })
+	                                    item.img && _react2.default.createElement('img', { src: item.img, width: '200', height: '150' })
 	                                ),
 	                                _react2.default.createElement('br', null),
 	                                _react2.default.createElement(
@@ -37803,7 +37811,7 @@
 	                                    _react2.default.createElement(
 	                                        'ul',
 	                                        { className: 'list-inline' },
-	                                        _react2.default.createElement(
+	                                        item.link && _react2.default.createElement(
 	                                            'li',
 	                                            null,
 	                                            _react2.default.createElement(
