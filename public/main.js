@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "5d2e24c0c73d5c6ac6bb"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "4edd69926aeafb3c73da"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -37723,7 +37723,7 @@
 	                desc: "Demo of a web application with form and manage data with redux.",
 	                techno: ["es6", "Promise", "React Js", "React Redux", "Bootstrap", "Less", "Chart.js", "Gmap.js (Google map)", "Geocoder (Google)"],
 	                link: "/labs",
-	                source: "https://github.com/devSeb/devSeb.github.io/tree/master/src/sources/LabelJs",
+	                source: "https://github.com/devSeb/devSeb.github.io/tree/master/src/sources/LabsJs",
 	                img: imgLabsApp,
 	                inProgress: "In Progress ..."
 	            }, { icon: "fa fa-android",
